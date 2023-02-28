@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments for malwr0nwind0z	</title>
+	<atom:link href="/blog/comments/feed/" rel="self" type="application/rss+xml" />
+	<link>/blog/</link>
+	<description></description>
+	<lastBuildDate>Sun, 12 Feb 2023 21:55:01 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>
+		Comment on ASyncRAT delivered through malspam via OneNote attachment (Stage 1) by malwr0nwind0z		</title>
+		<link>/blog/post_1-23-23_asyncrat_sample_part_1/#comment-2</link>
+
+		<dc:creator><![CDATA[malwr0nwind0z]]></dc:creator>
+		<pubDate>Sun, 12 Feb 2023 20:55:09 +0000</pubDate>
+		<guid isPermaLink="false">/blog/?p=972#comment-2</guid>
+
+					<description><![CDATA[nice article]]></description>
+			<content:encoded><![CDATA[<p>nice article</p>
+]]></content:encoded>
+		
+			</item>
+	</channel>
+</rss>
