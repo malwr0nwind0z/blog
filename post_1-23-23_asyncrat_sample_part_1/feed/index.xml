@@ -8,8 +8,8 @@
 <channel>
 	<title>
 	Comments on: ASyncRAT delivered through malspam via OneNote attachment (Stage 1)	</title>
-	<atom:link href="/blog/post_1-23-23_asyncrat_sample_part_1/feed/" rel="self" type="application/rss+xml" />
-	<link>/blog/post_1-23-23_asyncrat_sample_part_1/</link>
+	<atom:link href="http://malwr0nwind0z.local/post_1-23-23_asyncrat_sample_part_1/feed/" rel="self" type="application/rss+xml" />
+	<link>http://malwr0nwind0z.local/post_1-23-23_asyncrat_sample_part_1/</link>
 	<description></description>
 	<lastBuildDate>Sun, 12 Feb 2023 21:55:01 +0000</lastBuildDate>
 	<sy:updatePeriod>
@@ -17,19 +17,5 @@
 	<sy:updateFrequency>
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=6.1.1</generator>
-	<item>
-		<title>
-		By: malwr0nwind0z		</title>
-		<link>/blog/post_1-23-23_asyncrat_sample_part_1/#comment-2</link>
-
-		<dc:creator><![CDATA[malwr0nwind0z]]></dc:creator>
-		<pubDate>Sun, 12 Feb 2023 20:55:09 +0000</pubDate>
-		<guid isPermaLink="false">/blog/?p=972#comment-2</guid>
-
-					<description><![CDATA[nice article]]></description>
-			<content:encoded><![CDATA[<p>nice article</p>
-]]></content:encoded>
-		
-			</item>
-	</channel>
+</channel>
 </rss>
