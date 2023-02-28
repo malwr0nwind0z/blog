@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>malwr0nwind0z - malwr0nwind0z</title>
+	<atom:link href="/blog/author/malwr0wind0z/feed/" rel="self" type="application/rss+xml" />
+	<link>/blog/</link>
+	<description></description>
+	<lastBuildDate>Tue, 28 Feb 2023 05:35:28 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>ASyncRAT delivered through malspam via OneNote attachment (Stage 2)</title>
+		<link>/blog/post_1-23-23_asyncrat_sample_part_2/</link>
+					<comments>/blog/post_1-23-23_asyncrat_sample_part_2/#respond</comments>
+		
+		<dc:creator><![CDATA[malwr0nwind0z]]></dc:creator>
+		<pubDate>Mon, 23 Jan 2023 10:38:53 +0000</pubDate>
+				<category><![CDATA[Malware Analysis]]></category>
+		<category><![CDATA[asyncrat]]></category>
+		<category><![CDATA[malware]]></category>
+		<category><![CDATA[onenote malware]]></category>
+		<category><![CDATA[rat]]></category>
+		<guid isPermaLink="false">/blog/post_1-23-23_asyncrat_sample_part_2/</guid>
+
+					<description><![CDATA[<p>Continuing our previous AsyncRAT discussion, this is Part 2 of this blog post, where I will review stage 2, which will cover the analysis of the ASyncRAT payload (payload.exe) and we will dive into some of its functionalities.  Figure 1: File property details of payload.exe shown in CFF Explorer. Unpacking ASyncRAT Since this is a &#8230;</p>
+<p class="read-more"> <a class="" href="/blog/post_1-23-23_asyncrat_sample_part_2/"> <span class="screen-reader-text">ASyncRAT delivered through malspam via OneNote attachment (Stage 2)</span> Read More &#187;</a></p>
+<p>The post <a href="/blog/post_1-23-23_asyncrat_sample_part_2/">ASyncRAT delivered through malspam via OneNote attachment (Stage 2)</a> first appeared on <a href="/blog/">malwr0nwind0z</a>.</p>]]></description>
+										<content:encoded><![CDATA[<p>Continuing our previous AsyncRAT discussion, this is Part 2 of this blog post, where I will review stage 2, which will cover the analysis of the ASyncRAT payload (payload.exe) and we will dive into some of its functionalities.</p>
+<p style="text-align: center;"><strong><img decoding="async" class="aligncenter" src="/blog/wp-content/uploads/2023/02/payload_CFF.png" alt="" width="619" height="628" /> </strong><strong style="font-style: inherit; color: var(--ast-global-color-3); background-color: var(--ast-global-color-5);">Figure 1: File property details of payload.exe shown in CFF Explorer.</strong></p>
+<p>Unpacking ASyncRAT</p>
+<p>Since this is a .NET Assembly executable, I used DnSpy to start debugging it, to try and determine what are some of this file’s functionalities. After analyzing and decrypting the encoded (Base64 + AES Encryption (Key, IV)) 1st function (Fig. 2), this malware utilizes some of the following Anti-analysis Techniques:</p>
+<p>Calls <em>CheckRemoteDebuggerPresent</em> which checks if a debugger (in a different process on the same machine) is attached to the current process.</p>
+<p>Calls <em>IsDebuggerPresent</em> which checks whether the current process is being debugged by a user-mode debugger.</p>
+<p>Calls <em>AmsiScanBuffer </em>to attempt to bypass AMSI (Antimalware Scan Interface).</p>
+<p><strong><img decoding="async" src="/blog/wp-content/uploads/2023/02/payload_1st_funct_cmd_choice__del.png" alt="" width="1901" height="705" /></strong> <strong>Figure 2: The first function of payload.exe while loaded into DnSpy. </strong></p>
+<p><strong><img decoding="async" src="/blog/wp-content/uploads/2023/02/cyberchef_decode_strings_payload_1st_funct_cmd_choice__del.png" alt="" width="1094" height="574" /><br />
+Figure 3: De-obfuscating the first function using CyberChef, reveals strings of Anti-analysis API calls.</strong></p>
+<p>Looking at all of the obfuscation within each of these functions, I came to the conclusion, that I was looking at a packed file.</p>
+<p>My next step was to look for the file’s unpacking routine, which brought me to the object named memoryStream2 which is from the MemoryStream Class where it receives decompressed bytes from object GzipStream. These bytes were copied to _buffer. After my breakpoint is hit at “return memoryStream2.ToArray()”. I was able to dump the contents of _buffer, the dumped binary is an executable (File header: MZ). (Fig. 4 &amp; 5)</p>
+<p><strong><img decoding="async" src="/blog/wp-content/uploads/2023/02/dnspy_breakpoint_dump.png" alt="" width="1402" height="1000" />Figure 4: Breakpoint set on “return memoryStream2.ToArray()”, contents of _buffer is a dumped executable (File header: 0x4D5A).<br />
+</strong></p>
+<p><strong><img decoding="async" src="/blog/wp-content/uploads/2023/02/dnspy_memory_dump_unpack.png" alt="" width="1575" height="654" /> Figure 5: MemoryDump Window 2 shows contents of _buffer which is a dumped executable (File header: MZ).</strong></p>
+<p>A quick look at this file in CFF Explorer (Fig. 6). I can confirm after reviewing its strings, that the dumped binary is an unpacked version of ASyncRAT. I re-named this file unpacked_payload.exe (Original Filename: AsyncClientnownow.exe).</p>
+<p><img decoding="async" class="aligncenter" src="/blog/wp-content/uploads/2023/02/unpacked_payload_CFF.png" alt="" width="596" height="606" /><strong>Figure 6: File property details of unpacked_payload.exe (AsyncClientnownow.exe) shown in CFF Explorer.</strong></p>
+<p>Analysis of unpacked ASyncRaT</p>
+<p>Next, I load unpacked_payload.exe (AsyncClientnownow.exe) into DnSpy for analysis. The Main() function initializes settings and flow of code execution. The delay function defines the sleep duration (3 seconds) before execution.</p>
+<p>Mutex</p>
+<p>if (!MutexControl.CreateMutex())</p>
+<p>Environment.Exit(0);</p>
+<p>It checks to make sure that the current payload is not duplicated by checking if the Mutex value already exist (MTX = &#8220;AsyncMutex_6SI8OkPnk&#8221;). (Figure 7).</p>
+<p>InitializeSettings</p>
+<p>if (!Settings.InitializeSettings())</p>
+<p>Environment.Exit(0);</p>
+<p>The InitializeSettings function enables all hardcoded configurations and settings (Fig. 7). It also enables decryption of all configuration settings from the AES256 algorithm. (Fig. 8).</p>
+<p style="text-align: center;"><img decoding="async" class="aligncenter" src="/blog/wp-content/uploads/2023/02/Main_funct_intialization.png" alt="" width="750" height="998" /><strong style="font-style: inherit; background-color: var(--ast-global-color-5); color: var(--ast-global-color-3);">Figure 7: Main() function.</strong></p>
+<pre></pre>
+<p><strong><img decoding="async" class="alignnone size-full wp-image-1023" src="/blog/wp-content/uploads/2023/01/Settings_funct.png" alt="" width="1033" height="1789" srcset="/blog/wp-content/uploads/2023/01/Settings_funct.png 1033w, /blog/wp-content/uploads/2023/01/Settings_funct-173x300.png 173w, /blog/wp-content/uploads/2023/01/Settings_funct-591x1024.png 591w, /blog/wp-content/uploads/2023/01/Settings_funct-768x1330.png 768w, /blog/wp-content/uploads/2023/01/Settings_funct-887x1536.png 887w" sizes="(max-width: 1033px) 100vw, 1033px" />Figure 8: InitializeSettings function, where you can see the decryption of all configuration settings from the AES256 algorithm.</strong></p>
+<p>Configuration Settings</p>
+<p>Below are the decrypted hardcoded configuration settings:</p>
+<p><em>Key: JXkxqn0C8WXhwunn5UZ2PfINpI6joafo </em></p>
+<p><em>Ports: 6606, 7707, 8808 </em></p>
+<p><em>Hosts: 154.12.234.207 </em></p>
+<p><em>Version: 0.5.7B </em></p>
+<p><em>Install: False </em></p>
+<p><em>MTX (Mutex): AsyncMutex_6SI8OkPnk </em></p>
+<p><em>Pastebin: null </em></p>
+<p><em>Anti: False </em></p>
+<p><em>BDOS: False</em></p>
+<p><strong><img decoding="async" src="/blog/wp-content/uploads/2023/02/payload_traffic_154.12.234.207.png" alt="" width="1873" height="107" /><br />
+Figure 9: Connection to C2 server (154.12.234.207) to check-in.</strong></p>
+<p>Anti Analysis</p>
+<p>The Anti Analysis function includes multiple subfunctions to check for the following anti-analysis tools such as (Fig. 10):</p>
+<ul>
+<li>Detect Manufacturer: enables anti-VM (virtual machine) techniques by using WMI to check for VM environments by querying for the following keywords: “Microsoft Corporation”, “VIRTUAL”, “VMware”, or “VirtualBox”.</li>
+<li>Detect Sandbox: checks for the presence of “SbieDll.dll”, to detect if it is running in a sandbox (Sandboxie).</li>
+<li>IsSmallDisk: checks for small disk less (than or equal to 61000000000L (56.8 GB)) that may be often used by virtual machines designed for malware analysis.</li>
+<li>IsXP: checks whether the operating system is Windows XP.</li>
+<li>Anti-Virus Check: checks for which antivirus product is installed in the system by using WMI query command: “<a href="&quot;file:///\rootSecurityCenter2&quot;"><strong>\rootSecurityCenter2</strong></a><strong>”</strong>. This pulls this information from Windows security Center.</li>
+<li>Detect Debugger: calls <em>CheckRemoteDebuggerPresent</em> which checks if a debugger (in a different process on the same machine) is attached to the current process.</li>
+</ul>
+<p><img decoding="async" src="/blog/wp-content/uploads/2023/02/Anti-analysis_funct.png" alt="" width="760" height="1773" /><strong>Figure 10: Anti_Analysis function.</strong></p>
+<p>Install and Persistence</p>
+<p>ASyncRAT’s Install function maintains persistence checks as to whether the user has admin privileges. This occurs by creating a scheduled task to check every time a user logs on (Fig. 11):</p>
+<p><strong>“/</strong>c schtasks /create /f /sc onlogon /rl highest /tn”</p>
+<p>If the process reveals there are no admin privileges, a run registry entry is created in HKEY_CURRENT_USER: “Software\Microsoft\Windows\CurrentVersion\Run”; it then copies itself into a “%temp%” folder with a different name and executes from the temp folder via a batch script (Fig. 12 &amp;13).</p>
+<p><img decoding="async" src="/blog/wp-content/uploads/2023/02/install_funct.png" alt="" width="997" height="1735" /><strong>Figure 11: Install function.</strong></p>
+<p style="text-align: center;"><img decoding="async" class="aligncenter" src="/blog/wp-content/uploads/2023/02/cleanup.png" alt="" width="455" height="129" /><strong>Figure 12: Batch script used for Persistence.</strong></p>
+<p><strong> <img decoding="async" src="/blog/wp-content/uploads/2023/02/run_key_persistance.png" alt="" width="1304" height="235" /><br />
+Figure 13: Registry key used for Persistence.</strong></p>
+<p>From there, the attacker can execute various commands on the infected system, including:</p>
+<p>• Downloading additional malware (i.e. Remos)</p>
+<p>• Executing programs and commands</p>
+<p>• Taking screenshots</p>
+<p>• Logging keystrokes</p>
+<p>• Turning on the microphone and/or webcam to spy on the victim</p>
+<p>Detection and Prevention</p>
+<p>To detect and prevent ASyncRat attacks, it is important to be aware of the following:</p>
+<p>• Suspicious email attachments</p>
+<p>• Suspicious network activity</p>
+<p>• Slow system performance</p>
+<p>• Unusual pop-up windows and error messages</p>
+<p>It is also recommended to implement the following best practices:</p>
+<p>• Keep software and security systems up to date</p>
+<p>• Educate employees on the dangers of phishing emails and malspam</p>
+<p>• Use Anti-Virus with real-time protection</p>
+<p>• Enable firewalls and limit incoming connections</p>
+<p>• Regularly backup important data and store those backups offline</p>
+<p>Conclusion</p>
+<p>ASyncRat is a malicious RAT that can compromise the security of a target system and allow remote attackers to gain unauthorized access and control. To protect against ASyncRat attacks, it is important to be aware of the signs of infection and implement best practices for cybersecurity. By staying informed and vigilant, organizations and individuals can reduce their risk of falling victim to ASyncRat.</p>
+<p>IOCs:</p>
+<p>payload.exe (Original Filename: tmp4D28.tmp) (MD5: FCF99858964E59B68B0433B135B499BB)</p>
+<p>unpacked_payload.exe (AsyncClientnownow.exe) (MD5: e9d6d1ed7007d55c6a9ec576ff1f0172)</p>
+<p>C2 IOCs:</p>
+<p>154.12.234[.]207 (wormxwar.ddns[.]net, quasharr.ddns[.]net)</p><p>The post <a href="/blog/post_1-23-23_asyncrat_sample_part_2/">ASyncRAT delivered through malspam via OneNote attachment (Stage 2)</a> first appeared on <a href="/blog/">malwr0nwind0z</a>.</p>]]></content:encoded>
+					
+					<wfw:commentRss>/blog/post_1-23-23_asyncrat_sample_part_2/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>ASyncRAT delivered through malspam via OneNote attachment (Stage 1)</title>
+		<link>/blog/post_1-23-23_asyncrat_sample_part_1/</link>
+					<comments>/blog/post_1-23-23_asyncrat_sample_part_1/#respond</comments>
+		
+		<dc:creator><![CDATA[malwr0nwind0z]]></dc:creator>
+		<pubDate>Mon, 23 Jan 2023 04:12:59 +0000</pubDate>
+				<category><![CDATA[Malware Analysis]]></category>
+		<category><![CDATA[asyncrat]]></category>
+		<category><![CDATA[malware]]></category>
+		<category><![CDATA[onenote malware]]></category>
+		<category><![CDATA[rat]]></category>
+		<guid isPermaLink="false">/blog/?p=972</guid>
+
+					<description><![CDATA[<p>AsyncRat: A Remote Administration Trojan (RAT) AsyncRat is a malicious Remote Administration Trojan (RAT) that has been actively used in cyber attacks since 2019. This malware is designed to compromise the security of a target system and allow remote attackers to gain unauthorized access and control. In this blog post, we will analyze the behavior &#8230;</p>
+<p class="read-more"> <a class="" href="/blog/post_1-23-23_asyncrat_sample_part_1/"> <span class="screen-reader-text">ASyncRAT delivered through malspam via OneNote attachment (Stage 1)</span> Read More &#187;</a></p>
+<p>The post <a href="/blog/post_1-23-23_asyncrat_sample_part_1/">ASyncRAT delivered through malspam via OneNote attachment (Stage 1)</a> first appeared on <a href="/blog/">malwr0nwind0z</a>.</p>]]></description>
+										<content:encoded><![CDATA[<p><img decoding="async" width="899" height="650" class="wp-image-974" src="/blog/wp-content/uploads/2023/02/word-image-972-1.jpeg" srcset="/blog/wp-content/uploads/2023/02/word-image-972-1.jpeg 899w, /blog/wp-content/uploads/2023/02/word-image-972-1-300x217.jpeg 300w, /blog/wp-content/uploads/2023/02/word-image-972-1-768x555.jpeg 768w" sizes="(max-width: 899px) 100vw, 899px" /></p>
+<p>AsyncRat: A Remote Administration Trojan (RAT)</p>
+<p>AsyncRat is a malicious Remote Administration Trojan (RAT) that has been actively used in cyber attacks since 2019. This malware is designed to compromise the security of a target system and allow remote attackers to gain unauthorized access and control. In this blog post, we will analyze the behavior and characteristics of AsyncRat to better understand how it operates and how to protect against it.</p>
+<p>How This AsyncRat Infection Works</p>
+<p>The AsyncRat is typically delivered to the victim through various methods, including phishing emails, social engineering tactics, and exploiting vulnerabilities in unpatched software. In some cases, the malware may also be delivered through drive-by downloads, where the victim unwittingly downloads the malware while visiting a compromised website. The exact method of delivery may vary depending on the attackers&#8217; goals and the target&#8217;s specific vulnerabilities.</p>
+<p>In this instance it was delivered through malspam that contain a malicious Microsoft OneNote document within a zip archive named Invoice #099272663.zip. The malicious OneNote document (Invoice #099272663.one) contained a social engineering “CLICK TO VIEW DOCUMENT” image, that once clicked, it executes embedded VBScript.</p>
+<h6 style="text-align: center;"><img decoding="async" class="alignnone size-full wp-image-975" src="/blog/wp-content/uploads/2023/02/graphical-user-interface-text-application-chat.png" alt="Graphical user interface, text, application, chat or text message Description automatically generated" width="1398" height="899" srcset="/blog/wp-content/uploads/2023/02/graphical-user-interface-text-application-chat.png 1398w, /blog/wp-content/uploads/2023/02/graphical-user-interface-text-application-chat-300x193.png 300w, /blog/wp-content/uploads/2023/02/graphical-user-interface-text-application-chat-1024x658.png 1024w, /blog/wp-content/uploads/2023/02/graphical-user-interface-text-application-chat-768x494.png 768w" sizes="(max-width: 1398px) 100vw, 1398px" /> Figure 1: Embedded social engineering “<a id="post-972-_Hlk126791642"></a>CLICK TO VIEW DOCUMENT” image in the OneNote document (Invoice #099272663.one)</h6>
+<p>The VBScript invokes PowerShell to download a benign decoy OneNote document and a malicious batch script from the following URLs:</p>
+<p>Download URL: hxxps://www.onenotegem[.]com/uploads/soft/one-templates/the_daily_schedule.one</p>
+<p><a id="post-972-_Hlk126684701"></a> Drop folder location: C:\Users\&lt;Username&gt;\AppData\Local\Temp\invoice.one (Classification: benign decoy OneNote document used to trick the victim into thinking that all is well, after clicking on the aforementioned embedded social engineering “CLICK TO VIEW DOCUMENT” image)</p>
+<p>Download URL: hxxps://transfer[.]sh/get/bjLvT5/AsyncClientnownow.bat</p>
+<p>Drop folder location: C:\Users\&lt;Username&gt;\AppData\Local\Temp\system32.bat (Classification: ASyncRAT loader &#8211; malicious batch file)</p>
+<h6 style="text-align: center;"><img decoding="async" class="alignnone size-full wp-image-976" src="/blog/wp-content/uploads/2023/02/text-description-automatically-generated.png" alt="Text Description automatically generated" width="1358" height="278" srcset="/blog/wp-content/uploads/2023/02/text-description-automatically-generated.png 1358w, /blog/wp-content/uploads/2023/02/text-description-automatically-generated-300x61.png 300w, /blog/wp-content/uploads/2023/02/text-description-automatically-generated-1024x210.png 1024w, /blog/wp-content/uploads/2023/02/text-description-automatically-generated-768x157.png 768w" sizes="(max-width: 1358px) 100vw, 1358px" /> Figure 2: Embedded VBScript that when executed downloads a decoy OneNote document and a malicious batch script.</h6>
+<p>Spoilers!! The batch script (AsyncClientnownow.bat) that is downloaded to the system and executed, will ultimately drop and executed a ASyncRAT executable (payload.exe). The ASyncRAT executable is written in Microsoft .NET Framework. The batch script is classified as a ASyncRAT dropper.</p>
+<p>Next, I will briefly discuss how the heavily obfuscated batch script works. The first part of its code is an obfuscated executable file and the second part is an base64 encoded PowerShell script.</p>
+<h6 style="text-align: center;"><img decoding="async" class="alignnone size-full wp-image-977" src="/blog/wp-content/uploads/2023/02/graphical-user-interface-text-description-automa.png" alt="Graphical user interface, text Description automatically generated" width="1920" height="951" srcset="/blog/wp-content/uploads/2023/02/graphical-user-interface-text-description-automa.png 1920w, /blog/wp-content/uploads/2023/02/graphical-user-interface-text-description-automa-300x149.png 300w, /blog/wp-content/uploads/2023/02/graphical-user-interface-text-description-automa-1024x507.png 1024w, /blog/wp-content/uploads/2023/02/graphical-user-interface-text-description-automa-768x380.png 768w, /blog/wp-content/uploads/2023/02/graphical-user-interface-text-description-automa-1536x761.png 1536w" sizes="(max-width: 1920px) 100vw, 1920px" /> Figure 3: Obfuscated batch script that contains an encrypted ASyncRAT binary.</h6>
+<p>Once the base64 encoded PowerShell script is run it is de-obfuscated during runtime. A review of this PowerShell shows that it is used to de-obfuscate the first part of code in the batch script utilizing base64 decode, AES Decryption (Key and IV), and Gunzip. The resulting de-obfuscated code turns out to be the aforementioned ASyncRAT executable file, which is then loaded into memory and executed.</p>
+<h6 style="text-align: center;"><img decoding="async" class="alignnone size-full wp-image-978" src="/blog/wp-content/uploads/2023/02/text-description-automatically-generated-1.png" alt="Text Description automatically generated" width="1279" height="310" srcset="/blog/wp-content/uploads/2023/02/text-description-automatically-generated-1.png 1279w, /blog/wp-content/uploads/2023/02/text-description-automatically-generated-1-300x73.png 300w, /blog/wp-content/uploads/2023/02/text-description-automatically-generated-1-1024x248.png 1024w, /blog/wp-content/uploads/2023/02/text-description-automatically-generated-1-768x186.png 768w" sizes="(max-width: 1279px) 100vw, 1279px" /> Figure 4: A portion of the de-obfuscated batch script that shows the PowerShell script.</h6>
+<p>During my manual analysis, I was able to decrypt the obfuscated executable file using CyberChef. As I mentioned earlier it is classified as ASyncRAT and written in Microsoft .NET Framework. I re-named this file payload.exe.</p>
+<h6 style="text-align: center;"><img decoding="async" class="alignnone size-full wp-image-979" src="/blog/wp-content/uploads/2023/02/graphical-user-interface-text-application-descr.png" alt="Graphical user interface, text, application Description automatically generated" width="1537" height="907" srcset="/blog/wp-content/uploads/2023/02/graphical-user-interface-text-application-descr.png 1537w, /blog/wp-content/uploads/2023/02/graphical-user-interface-text-application-descr-300x177.png 300w, /blog/wp-content/uploads/2023/02/graphical-user-interface-text-application-descr-1024x604.png 1024w, /blog/wp-content/uploads/2023/02/graphical-user-interface-text-application-descr-768x453.png 768w" sizes="(max-width: 1537px) 100vw, 1537px" /> Figure 5: De-obfuscating the first part of the batch script using CyberChef. The file header is MZ, revealing that it is a Windows executable file.</h6>
+<p>That ends Part 1 of this blog, which was just analyzing stage 1 of this infection. In Part 2 of this blog post I will review stage 2, which will cover the analysis of the ASyncRAT payload and dive into some of its functionalities.</p>
+<p>IOCs:</p>
+<p>Invoice #099272663.zip (MD5: 5879DA120E13BC22DE3697D4A3CB2878)</p>
+<p>Invoice #099272663.one (MD5: 12B1656C766432FB6FE46AB8C40EE209)</p>
+<p>invoice.one (the_daily_schedule.one) (MD5: 8AABD7680DBDC7EB95340D69ADA9D25C)</p>
+<p>system32.bat (asyncClientnownow.bat) (MD5: C3AD255AB5B6318DB06602485D8D9CA0)</p>
+<p>payload.exe (Original Filename: tmp4D28.tmp) (MD5: FCF99858964E59B68B0433B135B499BB)</p><p>The post <a href="/blog/post_1-23-23_asyncrat_sample_part_1/">ASyncRAT delivered through malspam via OneNote attachment (Stage 1)</a> first appeared on <a href="/blog/">malwr0nwind0z</a>.</p>]]></content:encoded>
+					
+					<wfw:commentRss>/blog/post_1-23-23_asyncrat_sample_part_1/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>
