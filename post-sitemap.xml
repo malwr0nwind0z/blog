@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This sitemap was dynamically generated on February 28, 2023 at 5:21 pm by All in One SEO v4.3.1.1 - the original SEO plugin for WordPress. -->
+
+<?xml-stylesheet type="text/xsl" href="/blog/default.xsl?sitemap=post"?>
+<urlset
+	xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+	xmlns:xhtml="http://www.w3.org/1999/xhtml"
+	xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+>
+	<url>
+		<loc><![CDATA[/blog/post_1-23-23_asyncrat_sample_part_2/]]></loc>
+		<lastmod><![CDATA[2023-02-28T05:35:28+00:00]]></lastmod>
+		<changefreq><![CDATA[weekly]]></changefreq>
+		<priority><![CDATA[0.7]]></priority>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2021/07/Rat_typing_keyboard.jpg]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2023/02/payload_CFF.png]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2023/02/payload_1st_funct_cmd_choice__del.png]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2023/02/cyberchef_decode_strings_payload_1st_funct_cmd_choice__del.png]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2023/02/dnspy_breakpoint_dump.png]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2023/02/dnspy_memory_dump_unpack.png]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2023/02/unpacked_payload_CFF.png]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2023/02/Main_funct_intialization.png]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2023/01/Settings_funct.png]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2023/02/payload_traffic_154.12.234.207.png]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2023/02/Anti-analysis_funct.png]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2023/02/install_funct.png]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2023/02/cleanup.png]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2023/02/run_key_persistance.png]]></image:loc>
+		</image:image>
+	</url>
+	<url>
+		<loc><![CDATA[/blog/post_1-23-23_asyncrat_sample_part_1/]]></loc>
+		<lastmod><![CDATA[2023-02-12T21:55:01+00:00]]></lastmod>
+		<changefreq><![CDATA[weekly]]></changefreq>
+		<priority><![CDATA[0.7]]></priority>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2023/02/word-image-972-1.jpeg]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2023/02/graphical-user-interface-text-application-chat.png]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2023/02/text-description-automatically-generated.png]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2023/02/graphical-user-interface-text-description-automa.png]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2023/02/text-description-automatically-generated-1.png]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2023/02/graphical-user-interface-text-application-descr.png]]></image:loc>
+		</image:image>
+	</url>
+</urlset>
