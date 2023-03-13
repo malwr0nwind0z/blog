@@ -203,9 +203,7 @@
 						<td>
 													</td>
 						<td class="datetime">
-							<br />
-<b>Warning</b>:  Trying to access array offset on value of type null in <b>C:\Users\JTS\Local Sites\blog\app\public\wp-content\plugins\all-in-one-seo-pack\app\Common\Views\sitemap\xsl\default.php</b> on line <b>161</b><br />
-						</td>
+													</td>
 					</tr>
 				</xsl:for-each>
 				</tbody>
@@ -246,9 +244,7 @@
 							</a>
 						</td>
 						<td class="datetime">
-							<br />
-<b>Warning</b>:  Trying to access array offset on value of type null in <b>C:\Users\JTS\Local Sites\blog\app\public\wp-content\plugins\all-in-one-seo-pack\app\Common\Views\sitemap\xsl\default.php</b> on line <b>235</b><br />
-						</td>
+													</td>
 					</tr>
 				</xsl:for-each>
 				</tbody>
@@ -340,9 +336,7 @@
 							</xsl:if>
 						</td>
 						<td class="datetime">
-							<br />
-<b>Warning</b>:  Trying to access array offset on value of type null in <b>C:\Users\JTS\Local Sites\blog\app\public\wp-content\plugins\all-in-one-seo-pack\app\Common\Views\sitemap\xsl\default.php</b> on line <b>409</b><br />
-						</td>
+													</td>
 					</tr>
 				</xsl:for-each>
 				</tbody>
@@ -382,7 +376,7 @@
 						</xsl:choose>
 					</xsl:otherwise>
 				</xsl:choose>
-				and was generated on February 28, 2023 at 10:51 pm			</p>
+				and was generated on March 12, 2023 at 9:00 pm			</p>
 		</xsl:if>
 	</div>
 </xsl:template>
