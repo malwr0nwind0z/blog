@@ -297,7 +297,7 @@ Figure 6: Scan copy-001.exe loading Bunifu.UI.dll</p>
 <p>The new module Bunifu.UI.dll is an obfuscated .NET file that further executes a function to retrieve the embedded bitmap image named otQGDK, which is present in the resource of the malware file scan copy-001.exe.</p>
 <p>This steganography technique is used to hide malicious content in the compressed bitmap image. The successful decompression of the bitmap image retrieves another .NET file in memory which is MajorRevision.exe (Figure 8). The Bunifu.UI.dll module then loads MajorRevision.exe using the Assembly.Load method; which passes the decompressed bitmap content as an argument and then invokes it.</p>
 <p><img decoding="async" src="/blog/wp-content/uploads/2023/05/a-screen-shot-of-a-computer-description-automatic.png" alt="A screen shot of a computer Description automatically generated with medium confidence"><br>
-Figure 7: Encrypted bitmap image (otQGDKna) hiding an embedded executable (MajorRevsion.exe).</p>
+Figure 7: Encrypted bitmap image (otQGDK) hiding an embedded executable (MajorRevsion.exe).</p>
 <p><img decoding="async" src="/blog/wp-content/uploads/2023/05/a-screenshot-of-a-computer-program-description-au-2.png" alt="A screenshot of a computer program Description automatically generated with medium confidence"><br>
 Figure 8: Successful decompression of the bitmap image retrieves another .NET file in memory which is MajorRevision.exe.</p>
 <p>C2 Configuration Settings</p>
