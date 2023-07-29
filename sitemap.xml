@@ -9,52 +9,57 @@
 
 <url>
   <loc>https://malwr0nwind0z.github.io/blog/</loc>
-  <lastmod>2023-05-19T21:26:30+00:00</lastmod>
+  <lastmod>2023-07-29T13:02:51+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://malwr0nwind0z.github.io/blog/about/</loc>
-  <lastmod>2023-05-19T21:26:30+00:00</lastmod>
+  <lastmod>2023-07-29T13:02:51+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://malwr0nwind0z.github.io/blog/contact/</loc>
-  <lastmod>2023-05-19T21:26:30+00:00</lastmod>
+  <lastmod>2023-07-29T13:02:51+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://malwr0nwind0z.github.io/blog/category/malware-analysis/</loc>
-  <lastmod>2023-05-19T21:26:30+00:00</lastmod>
+  <lastmod>2023-07-29T13:02:51+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://malwr0nwind0z.github.io/blog/category/forensic-analysis/</loc>
-  <lastmod>2023-05-19T21:26:30+00:00</lastmod>
+  <lastmod>2023-07-29T13:02:51+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://malwr0nwind0z.github.io/blog/post_5-15-23_formbook_sample/</loc>
-  <lastmod>2023-05-19T21:26:30+00:00</lastmod>
+  <lastmod>2023-07-29T13:02:51+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://malwr0nwind0z.github.io/blog/author/malwr0wind0z/</loc>
-  <lastmod>2023-05-19T21:26:30+00:00</lastmod>
+  <lastmod>2023-07-29T13:02:51+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://malwr0nwind0z.github.io/blog/post_1-23-23_asyncrat_sample_part_2/</loc>
-  <lastmod>2023-05-19T21:26:30+00:00</lastmod>
+  <lastmod>2023-07-29T13:02:51+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://malwr0nwind0z.github.io/blog/post_1-23-23_asyncrat_sample_part_1/</loc>
-  <lastmod>2023-05-19T21:26:30+00:00</lastmod>
+  <lastmod>2023-07-29T13:02:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://malwr0nwind0z.github.io/blog/post_7-25-23_network_forensics_agent_tesla/</loc>
+  <lastmod>2023-07-29T13:02:51+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://malwr0nwind0z.github.io/blog/post_3-12-23_kape_forensics_qakbot_qaknote/</loc>
-  <lastmod>2023-05-19T21:26:30+00:00</lastmod>
+  <lastmod>2023-07-29T13:02:51+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 
