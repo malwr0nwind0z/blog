@@ -12,13 +12,13 @@
 	<atom:link href="/blog/category/forensic-analysis/feed/" rel="self" type="application/rss+xml" />
 	<link>/blog/</link>
 	<description></description>
-	<lastBuildDate>Sat, 18 Nov 2023 13:49:00 +0000</lastBuildDate>
+	<lastBuildDate>Tue, 05 Dec 2023 01:45:46 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
 	<sy:updateFrequency>
 	1	</sy:updateFrequency>
-	<generator>https://wordpress.org/?v=6.4.1</generator>
+	<generator>https://wordpress.org/?v=6.4.2</generator>
 
 <image>
 	<url>/blog/wp-content/uploads/2023/03/cropped-android-chrome-512x512-1-32x32.png</url>
@@ -144,8 +144,8 @@ Description automatically generated" srcset="/blog/wp-content/uploads/2023/07/a-
 <p><img decoding="async" src="/blog/wp-content/uploads/2023/03/text-description-automatically-generated.png" alt="Text Description automatically generated" /><br />
 <strong>Figure 2: KAPE collection is done.</strong></p>
 <p>The target forensic artifacts (files, logs, or registry hives) that I collect are stored in a vhdx container where I can later mount and analyze.</p>
-<p><img decoding="async" src="/blog/wp-content/uploads/2023/03/word-image-1097-4.jpeg" /></p>
-<p><strong>Figure 3: Target forensic artifacts stored in a xhdx file.</strong></p>
+<p><img decoding="async" src="/blog/wp-content/uploads/2023/03/word-image-1097-4.jpeg" /><br />
+<strong>Figure 3: Target forensic artifacts stored in a xhdx file.</strong></p>
 <p><img decoding="async" src="/blog/wp-content/uploads/2023/03/graphical-user-interface-text-application-email.jpeg" alt="Graphical user interface, text, application, email Description automatically generated" /><strong>Figure 4: The xhdx file is mounted for analysis.</strong></p>
 <p><img decoding="async" src="/blog/wp-content/uploads/2023/03/graphical-user-interface-application-table-exce.jpeg" alt="Graphical user interface, application, table, Excel Description automatically generated" /><strong>Figure 5: The CopyLog of all of the files that were collected in the xhdx file.</strong></p>
 <p><strong>Qakbot: A Banking Trojan</strong></p>
@@ -157,7 +157,8 @@ Description automatically generated" srcset="/blog/wp-content/uploads/2023/07/a-
 <strong>Figure 6: Embedded social engineering Microsoft O365 themed image (double click “open”)in the OneNote document (Invoice #030223.one).</strong></p>
 <p><strong>Qakbot &#8211; Forensic Artifacts</strong></p>
 <p>The review of the user’s Recent folder shows a lnk file for O P E N .wsf, indicating that it was double clicked and executed. Microsoft Protection (MPLog) was able to log the execution of this WScript file (O P E N .wsf) as having PID:7636 and the process start time: 133225496244686642 (LDAP/FILETIME) which converts to Sunday, March 5, 2023 11:13:44 PM GMT-05:00.</p>
-<p><img decoding="async" src="/blog/wp-content/uploads/2023/03/word-image-1097-8.jpeg" /><strong>Figure 7: Lnk file (located in Recent folder) pointing to the WScript file (O P E N .wsf) that the user executed.</strong></p>
+<p><img decoding="async" src="/blog/wp-content/uploads/2023/03/word-image-1097-8.jpeg" /><br />
+<strong>Figure 7: Lnk file (located in Recent folder) pointing to the WScript file (O P E N .wsf) that the user executed.</strong></p>
 <p><strong><img loading="lazy" decoding="async" src="/blog/wp-content/uploads/2023/03/Windows_Defender_log_pid_start_wsf.jpg" alt="" width="440" height="18" /> </strong></p>
 <p><strong>Figure 8: Microsoft Protection logging the PID and execution time of the WScript file (O P E N .wsf).</strong></p>
 <p>The WScript file invokes PowerShell to download a malicious Qakbot .dll from the following URL:</p>
