@@ -12,13 +12,13 @@
 	<atom:link href="/blog/category/threat-intel/feed/" rel="self" type="application/rss+xml" />
 	<link>/blog/</link>
 	<description></description>
-	<lastBuildDate>Fri, 15 Dec 2023 10:37:22 +0000</lastBuildDate>
+	<lastBuildDate>Mon, 29 Jan 2024 17:17:14 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
 	<sy:updateFrequency>
 	1	</sy:updateFrequency>
-	<generator>https://wordpress.org/?v=6.4.2</generator>
+	<generator>https://wordpress.org/?v=6.4.3</generator>
 
 <image>
 	<url>/blog/wp-content/uploads/2023/03/cropped-android-chrome-512x512-1-32x32.png</url>

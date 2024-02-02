@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- This sitemap was dynamically generated on May 16, 2023 at 5:21 pm by All in One SEO v4.3.7 - the original SEO plugin for WordPress. -->
+<!-- This sitemap was dynamically generated on February 2, 2024 at 2:25 am by All in One SEO v4.5.5 - the original SEO plugin for WordPress. -->
 
-<?xml-stylesheet type="text/xsl" href="/blog/default.xsl?sitemap=page"?>
+<?xml-stylesheet type="text/xsl" href="/blog/default-sitemap.xsl?sitemap=page"?>
 <urlset
 	xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
 	xmlns:xhtml="http://www.w3.org/1999/xhtml"
@@ -9,25 +9,31 @@
 >
 	<url>
 		<loc><![CDATA[/blog/]]></loc>
-		<lastmod><![CDATA[2023-02-12T20:20:04+00:00]]></lastmod>
+		<lastmod><![CDATA[2024-01-10T03:04:02+00:00]]></lastmod>
 		<changefreq><![CDATA[always]]></changefreq>
 		<priority><![CDATA[1]]></priority>
 		<image:image>
 			<image:loc><![CDATA[/blog/wp-content/uploads/2022/03/dotted-pattern.png]]></image:loc>
 		</image:image>
 		<image:image>
-			<image:loc><![CDATA[/blog/wp-content/uploads/elementor/thumbs/pexels-security_screen-1-q1ktncxuq26sdb8qljethldu29t7nxlhysmfg57edw.jpg]]></image:loc>
+			<image:loc><![CDATA[/blog/wp-content/uploads/elementor/thumbs/pexels-security_screen-1-q1kgldmxk6tjc9wyydy6s6wtemab03t1cluh3i1thw.jpg]]></image:loc>
 		</image:image>
 	</url>
 	<url>
-		<loc><![CDATA[/blog/contact/]]></loc>
-		<lastmod><![CDATA[2023-02-03T01:50:25+00:00]]></lastmod>
+		<loc><![CDATA[/blog/services/]]></loc>
+		<lastmod><![CDATA[2024-01-13T17:22:44+00:00]]></lastmod>
 		<changefreq><![CDATA[weekly]]></changefreq>
 		<priority><![CDATA[0.7]]></priority>
 	</url>
 	<url>
 		<loc><![CDATA[/blog/about/]]></loc>
-		<lastmod><![CDATA[2023-02-01T00:23:42+00:00]]></lastmod>
+		<lastmod><![CDATA[2023-12-06T14:25:17+00:00]]></lastmod>
+		<changefreq><![CDATA[weekly]]></changefreq>
+		<priority><![CDATA[0.7]]></priority>
+	</url>
+	<url>
+		<loc><![CDATA[/blog/contact/]]></loc>
+		<lastmod><![CDATA[2023-02-03T01:50:25+00:00]]></lastmod>
 		<changefreq><![CDATA[weekly]]></changefreq>
 		<priority><![CDATA[0.7]]></priority>
 	</url>

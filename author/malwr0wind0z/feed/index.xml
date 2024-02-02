@@ -18,7 +18,7 @@
 	hourly	</sy:updatePeriod>
 	<sy:updateFrequency>
 	1	</sy:updateFrequency>
-	<generator>https://wordpress.org/?v=6.4.2</generator>
+	<generator>https://wordpress.org/?v=6.4.3</generator>
 
 <image>
 	<url>/blog/wp-content/uploads/2023/03/cropped-android-chrome-512x512-1-32x32.png</url>
@@ -49,7 +49,7 @@
 		<category><![CDATA[raas]]></category>
 		<category><![CDATA[ransomware]]></category>
 		<category><![CDATA[word]]></category>
-		<guid isPermaLink="false">https://malwr0nwind0z.com/?p=1414</guid>
+		<guid isPermaLink="false">/blog/?p=1414</guid>
 
 					<description><![CDATA[<p>Lockbit Ransomware Lockbit is a well-known ransomware-as-a-service (RAAS) that first emerged in 2019. The Lockbit group threat actors or RAAS affiliates first target a system, once this system is compromised. Its file system is encrypted and a ransom note is dropped on the victim’s computer. This note contains instructions on how to make the ransom [&#8230;]</p>
 <p>The post <a href="/blog/post_1-23-24_lockbit_ransomware_3-0/">Lockbit Ransomware 3.0 leverages malicious Word Documents</a> first appeared on <a href="/blog/">malwr0nwind0z</a>.</p>]]></description>
@@ -170,7 +170,7 @@ Description automatically generated" srcset="/blog/wp-content/uploads/2024/01/a-
 		<category><![CDATA[malwr0nwind0z]]></category>
 		<category><![CDATA[originality ai]]></category>
 		<category><![CDATA[unlimited]]></category>
-		<guid isPermaLink="false">https://malwr0nwind0z.com/?p=1241</guid>
+		<guid isPermaLink="false">/blog/?p=1241</guid>
 
 					<description><![CDATA[<p>The YouTube video explains an Originality.AI Hack and&#160;how&#160;to get unlimited free credits for utilizing this program. The hack involves using a temporary email address generator website to create an temporary email address and sign up for a free Originality.AI account which grants you 50 free credits for each free&#160;account you sign up with. I say [&#8230;]</p>
 <p>The post <a href="/blog/post_11-11-23_originality_ai_hack_unlimited_free_credits/">Originality.AI Hack – How to get “Unlimited” FREE Credits</a> first appeared on <a href="/blog/">malwr0nwind0z</a>.</p>]]></description>
@@ -241,7 +241,7 @@ Description automatically generated" srcset="/blog/wp-content/uploads/2024/01/a-
 		<category><![CDATA[Rick Roll]]></category>
 		<category><![CDATA[Rick Rolling]]></category>
 		<category><![CDATA[rickroll; Invoke-PSHtml5.ps1]]></category>
-		<guid isPermaLink="false">https://malwr0nwind0z.com/?p=1220</guid>
+		<guid isPermaLink="false">/blog/?p=1220</guid>
 
 					<description><![CDATA[<p>I recently conducted a pentesting exercise for one of my clients. One main focus of the exercise was to detect and prevent a &#8220;Living off the Land&#8221; (LOTL) attack. &#8220;Living off the Land&#8221; (LOTL) in the context of cybersecurity refers to a technique used by hackers to carry out attacks using tools and utilities that [&#8230;]</p>
 <p>The post <a href="/blog/post_10-23-23_living_off_the_land_pentest/">The Ultimate Test: Living Off the Land (LOTL) while Rick Rollin</a> first appeared on <a href="/blog/">malwr0nwind0z</a>.</p>]]></description>
@@ -339,7 +339,7 @@ Description automatically generated with medium confidence" /><br /><strong>GIF 
 		<category><![CDATA[SMTP Data Exfiltration]]></category>
 		<category><![CDATA[Suricata]]></category>
 		<category><![CDATA[Wireshark]]></category>
-		<guid isPermaLink="false">https://malwr0nwind0z.com/?p=1165</guid>
+		<guid isPermaLink="false">/blog/?p=1165</guid>
 
 					<description><![CDATA[<p>Simplifying Network Forensic Analysis: Exploring Wireshark PCAP Files with Brim Wireshark is a powerful network protocol analyzer that allows network administrators and security professionals to monitor and inspect network traffic. It captures packets in real-time or reads from existing capture files, known as PCAP files, for offline analysis. However, as the complexity of network data [&#8230;]</p>
 <p>The post <a href="/blog/post_7-25-23_network_forensics_agent_tesla/">Network Forensics with Wireshark and Brim: Analyzing a PCAP from an Agent Tesla infection</a> first appeared on <a href="/blog/">malwr0nwind0z</a>.</p>]]></description>
@@ -423,7 +423,7 @@ Description automatically generated" srcset="/blog/wp-content/uploads/2023/07/a-
 		<category><![CDATA[rar attachment]]></category>
 		<category><![CDATA[steganography]]></category>
 		<category><![CDATA[xloader]]></category>
-		<guid isPermaLink="false">https://malwr0nwind0z.com/?p=1135</guid>
+		<guid isPermaLink="false">/blog/?p=1135</guid>
 
 					<description><![CDATA[<p>Formbook: A Infostealer Formbook is a type of malware that is primarily used for stealing sensitive information from infected computers, was first discovered in the wild back in 2016. It is commonly distributed via malspam, or malicious spam, which is a type of spam email that contains malware or links to malware-infected websites. In this [&#8230;]</p>
 <p>The post <a href="/blog/post_5-15-23_formbook_sample/">Stealthy Formbook leverages steganography</a> first appeared on <a href="/blog/">malwr0nwind0z</a>.</p>]]></description>
@@ -509,7 +509,7 @@ Description automatically generated" srcset="/blog/wp-content/uploads/2023/07/a-
 		<category><![CDATA[onenote]]></category>
 		<category><![CDATA[Qakbot]]></category>
 		<category><![CDATA[Qaknote]]></category>
-		<guid isPermaLink="false">https://malwr0nwind0z.com/?p=1097</guid>
+		<guid isPermaLink="false">/blog/?p=1097</guid>
 
 					<description><![CDATA[<p>KAPE: Kroll Artifact Parser and Extractor KAPE is a open source Windows-based triage program that will find and collect important forensically relevant Windows OS artifacts (System logs, Registry entries, etc.). KAPE can be ran on a live Windows operating or a mounted Windows image (i.e. dead-box forensics). KAPE utilizes Targets and Modules to collect and [&#8230;]</p>
 <p>The post <a href="/blog/post_3-12-23_kape_forensics_qakbot_qaknote/">KAPE Collection: Forensic artifacts from a Qakbot infection (via Qaknote)</a> first appeared on <a href="/blog/">malwr0nwind0z</a>.</p>]]></description>
@@ -587,7 +587,7 @@ Description automatically generated" srcset="/blog/wp-content/uploads/2023/07/a-
 		<category><![CDATA[rat]]></category>
 		<category><![CDATA[remote access trojan]]></category>
 		<category><![CDATA[wormxwar.ddns.net]]></category>
-		<guid isPermaLink="false">/blog/ut-enim-ad-minim-veniam-quis-nostrud-exercitation-ullamco-laboris-nisi/</guid>
+		<guid isPermaLink="false">http://malwr0nwind0z.local/ut-enim-ad-minim-veniam-quis-nostrud-exercitation-ullamco-laboris-nisi/</guid>
 
 					<description><![CDATA[<p>Continuing our previous AsyncRAT discussion, this is Part 2 of this blog post, where I will review stage 2, which will cover the analysis of the ASyncRAT payload (payload.exe) and we will dive into some of its functionalities. Figure 1: File property details of payload.exe shown in CFF Explorer. Unpacking ASyncRAT Since this is a [&#8230;]</p>
 <p>The post <a href="/blog/post_1-23-23_asyncrat_sample_part_2/">ASyncRAT delivered through malspam via OneNote attachment (Stage 2)</a> first appeared on <a href="/blog/">malwr0nwind0z</a>.</p>]]></description>
@@ -700,7 +700,7 @@ Description automatically generated" srcset="/blog/wp-content/uploads/2023/07/a-
 		<category><![CDATA[rat]]></category>
 		<category><![CDATA[remote access trojan]]></category>
 		<category><![CDATA[wormxwar.ddns.net]]></category>
-		<guid isPermaLink="false">/blog/?p=972</guid>
+		<guid isPermaLink="false">http://malwr0nwind0z.local/?p=972</guid>
 
 					<description><![CDATA[<p>AsyncRat: A Remote Access Trojan (RAT) AsyncRat is an open source Remote Access Trojan (RAT) that was originally released on Github. It has since been weaponized by threat actors and actively used in cyber attacks since 2019. This malware is designed to compromise the security of a target system and allow remote attackers to gain [&#8230;]</p>
 <p>The post <a href="/blog/post_1-23-23_asyncrat_sample_part_1/">ASyncRAT delivered through malspam via OneNote attachment (Stage 1)</a> first appeared on <a href="/blog/">malwr0nwind0z</a>.</p>]]></description>

@@ -18,7 +18,7 @@
 	hourly	</sy:updatePeriod>
 	<sy:updateFrequency>
 	1	</sy:updateFrequency>
-	<generator>https://wordpress.org/?v=6.4.2</generator>
+	<generator>https://wordpress.org/?v=6.4.3</generator>
 
 <image>
 	<url>/blog/wp-content/uploads/2023/03/cropped-android-chrome-512x512-1-32x32.png</url>
@@ -49,7 +49,7 @@
 		<category><![CDATA[SMTP Data Exfiltration]]></category>
 		<category><![CDATA[Suricata]]></category>
 		<category><![CDATA[Wireshark]]></category>
-		<guid isPermaLink="false">https://malwr0nwind0z.com/?p=1165</guid>
+		<guid isPermaLink="false">/blog/?p=1165</guid>
 
 					<description><![CDATA[<p>Simplifying Network Forensic Analysis: Exploring Wireshark PCAP Files with Brim Wireshark is a powerful network protocol analyzer that allows network administrators and security professionals to monitor and inspect network traffic. It captures packets in real-time or reads from existing capture files, known as PCAP files, for offline analysis. However, as the complexity of network data [&#8230;]</p>
 <p>The post <a href="/blog/post_7-25-23_network_forensics_agent_tesla/">Network Forensics with Wireshark and Brim: Analyzing a PCAP from an Agent Tesla infection</a> first appeared on <a href="/blog/">malwr0nwind0z</a>.</p>]]></description>
@@ -130,7 +130,7 @@ Description automatically generated" srcset="/blog/wp-content/uploads/2023/07/a-
 		<category><![CDATA[onenote]]></category>
 		<category><![CDATA[Qakbot]]></category>
 		<category><![CDATA[Qaknote]]></category>
-		<guid isPermaLink="false">https://malwr0nwind0z.com/?p=1097</guid>
+		<guid isPermaLink="false">/blog/?p=1097</guid>
 
 					<description><![CDATA[<p>KAPE: Kroll Artifact Parser and Extractor KAPE is a open source Windows-based triage program that will find and collect important forensically relevant Windows OS artifacts (System logs, Registry entries, etc.). KAPE can be ran on a live Windows operating or a mounted Windows image (i.e. dead-box forensics). KAPE utilizes Targets and Modules to collect and [&#8230;]</p>
 <p>The post <a href="/blog/post_3-12-23_kape_forensics_qakbot_qaknote/">KAPE Collection: Forensic artifacts from a Qakbot infection (via Qaknote)</a> first appeared on <a href="/blog/">malwr0nwind0z</a>.</p>]]></description>

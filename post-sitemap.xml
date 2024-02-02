@@ -1,60 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- This sitemap was dynamically generated on May 16, 2023 at 5:21 pm by All in One SEO v4.3.7 - the original SEO plugin for WordPress. -->
+<!-- This sitemap was dynamically generated on February 2, 2024 at 2:25 am by All in One SEO v4.5.5 - the original SEO plugin for WordPress. -->
 
-<?xml-stylesheet type="text/xsl" href="/blog/default.xsl?sitemap=post"?>
+<?xml-stylesheet type="text/xsl" href="/blog/default-sitemap.xsl?sitemap=post"?>
 <urlset
 	xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
 	xmlns:xhtml="http://www.w3.org/1999/xhtml"
 	xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
 >
 	<url>
-		<loc><![CDATA[/blog/post_5-15-23_formbook_sample/]]></loc>
-		<lastmod><![CDATA[2023-05-15T13:43:38+00:00]]></lastmod>
-		<changefreq><![CDATA[weekly]]></changefreq>
-		<priority><![CDATA[0.7]]></priority>
-		<image:image>
-			<image:loc><![CDATA[/blog/wp-content/uploads/2023/05/a-picture-containing-stitch-description-automatic.jpeg]]></image:loc>
-		</image:image>
-		<image:image>
-			<image:loc><![CDATA[/blog/wp-content/uploads/2023/05/a-picture-containing-text-screenshot-description.png]]></image:loc>
-		</image:image>
-		<image:image>
-			<image:loc><![CDATA[/blog/wp-content/uploads/2023/05/a-screenshot-of-a-computer-description-automatica.jpeg]]></image:loc>
-		</image:image>
-		<image:image>
-			<image:loc><![CDATA[/blog/wp-content/uploads/2023/05/a-screenshot-of-a-computer-description-automatica-1.jpeg]]></image:loc>
-		</image:image>
-		<image:image>
-			<image:loc><![CDATA[/blog/wp-content/uploads/2023/05/EditorBrowsable_DeuggerHidden.png]]></image:loc>
-		</image:image>
-		<image:image>
-			<image:loc><![CDATA[/blog/wp-content/uploads/2023/05/a-screenshot-of-a-computer-program-description-au.png]]></image:loc>
-		</image:image>
-		<image:image>
-			<image:loc><![CDATA[/blog/wp-content/uploads/2023/05/a-screenshot-of-a-computer-program-description-au-1.png]]></image:loc>
-		</image:image>
-		<image:image>
-			<image:loc><![CDATA[/blog/wp-content/uploads/2023/05/a-screen-shot-of-a-computer-description-automatic.png]]></image:loc>
-		</image:image>
-		<image:image>
-			<image:loc><![CDATA[/blog/wp-content/uploads/2023/05/a-screenshot-of-a-computer-program-description-au-2.png]]></image:loc>
-		</image:image>
-		<image:image>
-			<image:loc><![CDATA[/blog/wp-content/uploads/2023/05/a-picture-containing-text-screenshot-font-infor.png]]></image:loc>
-		</image:image>
-		<image:image>
-			<image:loc><![CDATA[/blog/wp-content/uploads/2023/05/a-screenshot-of-a-computer-program-description-au-3.png]]></image:loc>
-		</image:image>
-		<image:image>
-			<image:loc><![CDATA[/blog/wp-content/uploads/2023/05/a-screenshot-of-a-computer-program-description-au-4.png]]></image:loc>
-		</image:image>
-		<image:image>
-			<image:loc><![CDATA[/blog/wp-content/uploads/2023/05/a-screenshot-of-a-computer-description-automatica.png]]></image:loc>
-		</image:image>
-	</url>
-	<url>
 		<loc><![CDATA[/blog/post_3-12-23_kape_forensics_qakbot_qaknote/]]></loc>
-		<lastmod><![CDATA[2023-03-12T18:27:25+00:00]]></lastmod>
+		<lastmod><![CDATA[2024-01-29T17:17:14+00:00]]></lastmod>
 		<changefreq><![CDATA[weekly]]></changefreq>
 		<priority><![CDATA[0.7]]></priority>
 		<image:image>
@@ -98,8 +53,122 @@
 		</image:image>
 	</url>
 	<url>
+		<loc><![CDATA[/blog/post_10-23-23_living_off_the_land_pentest/]]></loc>
+		<lastmod><![CDATA[2024-01-29T01:34:09+00:00]]></lastmod>
+		<changefreq><![CDATA[weekly]]></changefreq>
+		<priority><![CDATA[0.7]]></priority>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2023/10/a-screenshot-of-a-computer-description-automatica.png]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2023/10/a-screenshot-of-a-computer-program-description-au.png]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2023/10/a-screenshot-of-a-computer-description-automatica-1.png]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2023/10/a-screen-shot-of-a-computer-description-automatic.png]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2023/10/a-screenshot-of-a-computer-program-description-au-1.png]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2023/10/a-screenshot-of-a-computer-description-automatica-2.png]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2023/10/a-screenshot-of-a-computer-program-description-au-2.png]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2023/10/a-black-background-with-a-black-square-descriptio.gif]]></image:loc>
+		</image:image>
+	</url>
+	<url>
+		<loc><![CDATA[/blog/post_1-23-24_lockbit_ransomware_3-0/]]></loc>
+		<lastmod><![CDATA[2024-01-26T00:32:47+00:00]]></lastmod>
+		<changefreq><![CDATA[weekly]]></changefreq>
+		<priority><![CDATA[0.7]]></priority>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-description-automatica.png]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2024/01/word-image-1414-2.png]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-description-automatica-1.png]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2024/01/a-computer-screen-with-a-white-screen-description.png]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2024/01/a-computer-screen-shot-of-a-computer-description.png]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-program-description-au.png]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-description-automatica-2.png]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-description-automatica-3.png]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-description-automatica-4.png]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2024/01/a-black-screen-with-white-text-description-automa.png]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-error-description-auto.png]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2024/01/a-screen-shot-of-a-computer-description-automatic.png]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-error-description-auto-1.png]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-description-automatica-5.png]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-description-automatica-6.png]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-description-automatica-7.png]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-description-automatica-8.png]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-description-automatica-9.png]]></image:loc>
+		</image:image>
+	</url>
+	<url>
+		<loc><![CDATA[/blog/post_7-25-23_network_forensics_agent_tesla/]]></loc>
+		<lastmod><![CDATA[2024-01-09T19:53:04+00:00]]></lastmod>
+		<changefreq><![CDATA[weekly]]></changefreq>
+		<priority><![CDATA[0.7]]></priority>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2023/07/a-close-up-of-a-logo-description-automatically-ge.jpeg]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2023/07/a-screenshot-of-a-computer-description-automatica.jpeg]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2023/07/word-image-1165-3.png]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2023/07/a-screenshot-of-a-computer-description-automatica.png]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2023/07/a-screenshot-of-a-computer-description-automatica-1.png]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2023/07/a-screenshot-of-a-computer-description-automatica-2.png]]></image:loc>
+		</image:image>
+	</url>
+	<url>
 		<loc><![CDATA[/blog/post_1-23-23_asyncrat_sample_part_2/]]></loc>
-		<lastmod><![CDATA[2023-02-28T05:44:49+00:00]]></lastmod>
+		<lastmod><![CDATA[2023-12-15T10:37:22+00:00]]></lastmod>
 		<changefreq><![CDATA[weekly]]></changefreq>
 		<priority><![CDATA[0.7]]></priority>
 		<image:image>
@@ -147,14 +216,17 @@
 	</url>
 	<url>
 		<loc><![CDATA[/blog/post_1-23-23_asyncrat_sample_part_1/]]></loc>
-		<lastmod><![CDATA[2023-02-12T20:45:49+00:00]]></lastmod>
+		<lastmod><![CDATA[2023-12-15T10:33:12+00:00]]></lastmod>
 		<changefreq><![CDATA[weekly]]></changefreq>
 		<priority><![CDATA[0.7]]></priority>
 		<image:image>
-			<image:loc><![CDATA[/blog/wp-content/uploads/2023/02/word-image-972-1.jpeg]]></image:loc>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2023/12/image-1.png]]></image:loc>
 		</image:image>
 		<image:image>
-			<image:loc><![CDATA[/blog/wp-content/uploads/2023/01/onenote_screenshot.png]]></image:loc>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2023/01/onenote_screenshot-1024x658.png]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2023/01/asyncrat_infection_chain.jpg]]></image:loc>
 		</image:image>
 		<image:image>
 			<image:loc><![CDATA[/blog/wp-content/uploads/2023/01/onenote_malicious_vbscript.png]]></image:loc>
@@ -163,10 +235,64 @@
 			<image:loc><![CDATA[/blog/wp-content/uploads/2023/02/graphical-user-interface-text-description-automa.png]]></image:loc>
 		</image:image>
 		<image:image>
-			<image:loc><![CDATA[/blog/wp-content/uploads/2023/02/text-description-automatically-generated-1.png]]></image:loc>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2023/02/text-description-automatically-generated-1-1024x248.png]]></image:loc>
 		</image:image>
 		<image:image>
 			<image:loc><![CDATA[/blog/wp-content/uploads/2023/02/graphical-user-interface-text-application-descr.png]]></image:loc>
 		</image:image>
+	</url>
+	<url>
+		<loc><![CDATA[/blog/post_5-15-23_formbook_sample/]]></loc>
+		<lastmod><![CDATA[2023-12-15T10:13:01+00:00]]></lastmod>
+		<changefreq><![CDATA[weekly]]></changefreq>
+		<priority><![CDATA[0.7]]></priority>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2023/05/a-picture-containing-text-screenshot-description.png]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2023/05/formbook_infection_chain.jpg]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2023/05/FormBook-pricing-e1626822824816.jpg]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2023/05/a-screenshot-of-a-computer-description-automatica.jpeg]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2023/05/a-screenshot-of-a-computer-description-automatica-1.jpeg]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2023/05/EditorBrowsable_DeuggerHidden.png]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2023/05/a-screenshot-of-a-computer-program-description-au.png]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2023/05/a-screenshot-of-a-computer-program-description-au-1.png]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2023/05/a-screen-shot-of-a-computer-description-automatic.png]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2023/05/a-screenshot-of-a-computer-program-description-au-2.png]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2023/05/a-picture-containing-text-screenshot-font-infor.png]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2023/05/a-screenshot-of-a-computer-program-description-au-3.png]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2023/05/a-screenshot-of-a-computer-program-description-au-4.png]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2023/05/a-screenshot-of-a-computer-description-automatica.png]]></image:loc>
+		</image:image>
+	</url>
+	<url>
+		<loc><![CDATA[/blog/post_11-11-23_originality_ai_hack_unlimited_free_credits/]]></loc>
+		<lastmod><![CDATA[2023-11-28T05:06:22+00:00]]></lastmod>
+		<changefreq><![CDATA[weekly]]></changefreq>
+		<priority><![CDATA[0.7]]></priority>
 	</url>
 </urlset>

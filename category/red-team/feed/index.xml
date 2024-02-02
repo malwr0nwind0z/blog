@@ -12,13 +12,13 @@
 	<atom:link href="/blog/category/red-team/feed/" rel="self" type="application/rss+xml" />
 	<link>/blog/</link>
 	<description></description>
-	<lastBuildDate>Tue, 05 Dec 2023 01:48:42 +0000</lastBuildDate>
+	<lastBuildDate>Mon, 29 Jan 2024 01:34:09 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
 	<sy:updateFrequency>
 	1	</sy:updateFrequency>
-	<generator>https://wordpress.org/?v=6.4.2</generator>
+	<generator>https://wordpress.org/?v=6.4.3</generator>
 
 <image>
 	<url>/blog/wp-content/uploads/2023/03/cropped-android-chrome-512x512-1-32x32.png</url>
@@ -43,10 +43,9 @@
 		<category><![CDATA[malwr0nwind0z]]></category>
 		<category><![CDATA[originality ai]]></category>
 		<category><![CDATA[unlimited]]></category>
-		<guid isPermaLink="false">https://malwr0nwind0z.com/?p=1241</guid>
+		<guid isPermaLink="false">/blog/?p=1241</guid>
 
-					<description><![CDATA[<p>The YouTube video explains an Originality.AI Hack and&#160;how&#160;to get unlimited free credits for utilizing this program. The hack involves using a temporary email address generator website to create an temporary email address and sign up for a free Originality.AI account which grants you 50 free credits for each free&#160;account you sign up with. I say &#8230;</p>
-<p class="read-more"> <a class="" href="/blog/post_11-11-23_originality_ai_hack_unlimited_free_credits/"> <span class="screen-reader-text">Originality.AI Hack &#8211; How to get &#8220;Unlimited&#8221; FREE Credits</span> Read More &#187;</a></p>
+					<description><![CDATA[<p>The YouTube video explains an Originality.AI Hack and&#160;how&#160;to get unlimited free credits for utilizing this program. The hack involves using a temporary email address generator website to create an temporary email address and sign up for a free Originality.AI account which grants you 50 free credits for each free&#160;account you sign up with. I say [&#8230;]</p>
 <p>The post <a href="/blog/post_11-11-23_originality_ai_hack_unlimited_free_credits/">Originality.AI Hack – How to get “Unlimited” FREE Credits</a> first appeared on <a href="/blog/">malwr0nwind0z</a>.</p>]]></description>
 										<content:encoded><![CDATA[<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
 <div class="ast-oembed-container " style="height: 100%;"><iframe title="Originality.AI Hack – How to get “Unlimited” FREE Credits" width="1240" height="698" src="https://www.youtube.com/embed/v4zZkyg_M8U?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
@@ -110,16 +109,14 @@
 		<category><![CDATA[pentesting]]></category>
 		<category><![CDATA[PowerShell]]></category>
 		<category><![CDATA[PowerShell.exe]]></category>
-		<category><![CDATA[PSHtml5]]></category>
 		<category><![CDATA[red team]]></category>
 		<category><![CDATA[Rick Astley]]></category>
 		<category><![CDATA[Rick Roll]]></category>
 		<category><![CDATA[Rick Rolling]]></category>
-		<category><![CDATA[rickroll]]></category>
-		<guid isPermaLink="false">https://malwr0nwind0z.com/?p=1220</guid>
+		<category><![CDATA[rickroll; Invoke-PSHtml5.ps1]]></category>
+		<guid isPermaLink="false">/blog/?p=1220</guid>
 
-					<description><![CDATA[<p>I recently conducted a pentesting exercise for one of my clients. One main focus of the exercise was to detect and prevent a &#8220;Living off the Land&#8221; (LOTL) attack. &#8220;Living off the Land&#8221; (LOTL) in the context of cybersecurity refers to a technique used by hackers to carry out attacks using tools and utilities that &#8230;</p>
-<p class="read-more"> <a class="" href="/blog/post_10-23-23_living_off_the_land_pentest/"> <span class="screen-reader-text">The Ultimate Test: Living Off the Land (LOTL) while Rick Rollin</span> Read More &#187;</a></p>
+					<description><![CDATA[<p>I recently conducted a pentesting exercise for one of my clients. One main focus of the exercise was to detect and prevent a &#8220;Living off the Land&#8221; (LOTL) attack. &#8220;Living off the Land&#8221; (LOTL) in the context of cybersecurity refers to a technique used by hackers to carry out attacks using tools and utilities that [&#8230;]</p>
 <p>The post <a href="/blog/post_10-23-23_living_off_the_land_pentest/">The Ultimate Test: Living Off the Land (LOTL) while Rick Rollin</a> first appeared on <a href="/blog/">malwr0nwind0z</a>.</p>]]></description>
 										<content:encoded><![CDATA[<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
 <div class="ast-oembed-container " style="height: 100%;"><iframe title="LOLbins: Living Off the Land while Rick Rollin" width="1240" height="698" src="https://www.youtube.com/embed/YEPOBSatNgA?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
