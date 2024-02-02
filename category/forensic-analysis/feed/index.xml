@@ -12,7 +12,7 @@
 	<atom:link href="/blog/category/forensic-analysis/feed/" rel="self" type="application/rss+xml" />
 	<link>/blog/</link>
 	<description></description>
-	<lastBuildDate>Tue, 05 Dec 2023 01:45:46 +0000</lastBuildDate>
+	<lastBuildDate>Mon, 29 Jan 2024 17:17:14 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -51,10 +51,14 @@
 		<category><![CDATA[Wireshark]]></category>
 		<guid isPermaLink="false">https://malwr0nwind0z.com/?p=1165</guid>
 
-					<description><![CDATA[<p>Simplifying Network Forensic Analysis: Exploring Wireshark PCAP Files with Brim Wireshark is a powerful network protocol analyzer that allows network administrators and security professionals to monitor and inspect network traffic. It captures packets in real-time or reads from existing capture files, known as PCAP files, for offline analysis. However, as the complexity of network data &#8230;</p>
-<p class="read-more"> <a class="" href="/blog/post_7-25-23_network_forensics_agent_tesla/"> <span class="screen-reader-text">Network Forensics with Wireshark and Brim: Analyzing a PCAP from an Agent Tesla infection</span> Read More &#187;</a></p>
+					<description><![CDATA[<p>Simplifying Network Forensic Analysis: Exploring Wireshark PCAP Files with Brim Wireshark is a powerful network protocol analyzer that allows network administrators and security professionals to monitor and inspect network traffic. It captures packets in real-time or reads from existing capture files, known as PCAP files, for offline analysis. However, as the complexity of network data [&#8230;]</p>
 <p>The post <a href="/blog/post_7-25-23_network_forensics_agent_tesla/">Network Forensics with Wireshark and Brim: Analyzing a PCAP from an Agent Tesla infection</a> first appeared on <a href="/blog/">malwr0nwind0z</a>.</p>]]></description>
-										<content:encoded><![CDATA[<p><img fetchpriority="high" decoding="async" width="623" height="155" class="wp-image-1169" src="/blog/wp-content/uploads/2023/07/a-close-up-of-a-logo-description-automatically-ge.jpeg" alt="A close up of a logo
+										<content:encoded><![CDATA[<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+<div class="ast-oembed-container " style="height: 100%;"><iframe title="Network Forensics with Wireshark and Brim(Zui): Analyzing a PCAP from an Agent Tesla infection" width="1240" height="698" src="https://www.youtube.com/embed/EzwD3aUbnzg?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+</div><figcaption class="wp-element-caption"><strong>Video 1: Watch the companion video that this blog post inspired.</strong></figcaption></figure>
+
+
+<p><img fetchpriority="high" decoding="async" width="623" height="155" class="wp-image-1169" src="/blog/wp-content/uploads/2023/07/a-close-up-of-a-logo-description-automatically-ge.jpeg" alt="A close up of a logo
 
 Description automatically generated" srcset="/blog/wp-content/uploads/2023/07/a-close-up-of-a-logo-description-automatically-ge.jpeg 623w, /blog/wp-content/uploads/2023/07/a-close-up-of-a-logo-description-automatically-ge-300x75.jpeg 300w" sizes="(max-width: 623px) 100vw, 623px" /></p>
 <h4>Simplifying Network Forensic Analysis: Exploring Wireshark PCAP Files with Brim</h4>
@@ -90,7 +94,7 @@ Description automatically generated" srcset="/blog/wp-content/uploads/2023/07/a-
 
 Description automatically generated" srcset="/blog/wp-content/uploads/2023/07/a-screenshot-of-a-computer-description-automatica-1.png 1280w, /blog/wp-content/uploads/2023/07/a-screenshot-of-a-computer-description-automatica-1-300x213.png 300w, /blog/wp-content/uploads/2023/07/a-screenshot-of-a-computer-description-automatica-1-1024x727.png 1024w, /blog/wp-content/uploads/2023/07/a-screenshot-of-a-computer-description-automatica-1-768x545.png 768w" sizes="(max-width: 1280px) 100vw, 1280px" /><strong>Figure 4: Wireshark capture of C2 traffic showing customer data being sent to a compromised email address (schayer@marintravellft.com).</strong></p>
 <p><strong>Agent Tesla – Exfiltration detected by Brim’s Suricata</strong></p>
-<p>Lastly, I loaded the Wireshark PCAP file into Brim. Brim’s Suricata signatures were able to detect and alert on the C2 connection to IP 208.91.199.224:58, which is the data exfiltration over SMTP.</p>
+<p>Lastly, I loaded the Wireshark PCAP file into Brim. Brim’s Suricata signatures were able to detect and alert on the C2 connection to IP 208.91.199.224:587, which is the data exfiltration over SMTP.</p>
 <p><img loading="lazy" decoding="async" width="1918" height="1031" class="wp-image-1174" src="/blog/wp-content/uploads/2023/07/a-screenshot-of-a-computer-description-automatica-2.png" alt="A screenshot of a computer
 
 Description automatically generated" srcset="/blog/wp-content/uploads/2023/07/a-screenshot-of-a-computer-description-automatica-2.png 1918w, /blog/wp-content/uploads/2023/07/a-screenshot-of-a-computer-description-automatica-2-300x161.png 300w, /blog/wp-content/uploads/2023/07/a-screenshot-of-a-computer-description-automatica-2-1024x550.png 1024w, /blog/wp-content/uploads/2023/07/a-screenshot-of-a-computer-description-automatica-2-768x413.png 768w, /blog/wp-content/uploads/2023/07/a-screenshot-of-a-computer-description-automatica-2-1536x826.png 1536w" sizes="(max-width: 1918px) 100vw, 1918px" /><strong>Figure 5: Brim’s Suricata engine detects the data exfiltration over SMTP.</strong></p>
@@ -128,10 +132,16 @@ Description automatically generated" srcset="/blog/wp-content/uploads/2023/07/a-
 		<category><![CDATA[Qaknote]]></category>
 		<guid isPermaLink="false">https://malwr0nwind0z.com/?p=1097</guid>
 
-					<description><![CDATA[<p>KAPE: Kroll Artifact Parser and Extractor KAPE is a open source Windows-based triage program that will find and collect important forensically relevant Windows OS artifacts (System logs, Registry entries, etc.). KAPE can be ran on a live Windows operating or a mounted Windows image (i.e. dead-box forensics). KAPE utilizes Targets and Modules to collect and &#8230;</p>
-<p class="read-more"> <a class="" href="/blog/post_3-12-23_kape_forensics_qakbot_qaknote/"> <span class="screen-reader-text">KAPE Collection: Forensic artifacts from a Qakbot infection (via Qaknote)</span> Read More &#187;</a></p>
+					<description><![CDATA[<p>KAPE: Kroll Artifact Parser and Extractor KAPE is a open source Windows-based triage program that will find and collect important forensically relevant Windows OS artifacts (System logs, Registry entries, etc.). KAPE can be ran on a live Windows operating or a mounted Windows image (i.e. dead-box forensics). KAPE utilizes Targets and Modules to collect and [&#8230;]</p>
 <p>The post <a href="/blog/post_3-12-23_kape_forensics_qakbot_qaknote/">KAPE Collection: Forensic artifacts from a Qakbot infection (via Qaknote)</a> first appeared on <a href="/blog/">malwr0nwind0z</a>.</p>]]></description>
-										<content:encoded><![CDATA[<p><img decoding="async" src="/blog/wp-content/uploads/2023/03/icon-description-automatically-generated.png" alt="Icon Description automatically generated" /></p>
+										<content:encoded><![CDATA[<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+<div class="ast-oembed-container " style="height: 100%;"><iframe title="Using KAPE to analyze a Qakbot infection" width="1240" height="698" src="https://www.youtube.com/embed/JzVcgZ-tzy0?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+</div><figcaption class="wp-element-caption"><strong>Video 1: Watch the companion video that this blog post inspired.</strong></figcaption></figure>
+
+
+<p><style>/*! elementor - v3.19.0 - 29-01-2024 */<br />
+.elementor-column .elementor-spacer-inner{height:var(--spacer-size)}.e-con{--container-widget-width:100%}.e-con-inner>.elementor-widget-spacer,.e-con>.elementor-widget-spacer{width:var(--container-widget-width,var(--spacer-size));--align-self:var(--container-widget-align-self,initial);--flex-shrink:0}.e-con-inner>.elementor-widget-spacer>.elementor-widget-container,.e-con>.elementor-widget-spacer>.elementor-widget-container{height:100%;width:100%}.e-con-inner>.elementor-widget-spacer>.elementor-widget-container>.elementor-spacer,.e-con>.elementor-widget-spacer>.elementor-widget-container>.elementor-spacer{height:100%}.e-con-inner>.elementor-widget-spacer>.elementor-widget-container>.elementor-spacer>.elementor-spacer-inner,.e-con>.elementor-widget-spacer>.elementor-widget-container>.elementor-spacer>.elementor-spacer-inner{height:var(--container-widget-height,var(--spacer-size))}.e-con-inner>.elementor-widget-spacer.elementor-widget-empty,.e-con>.elementor-widget-spacer.elementor-widget-empty{position:relative;min-height:22px;min-width:22px}.e-con-inner>.elementor-widget-spacer.elementor-widget-empty .elementor-widget-empty-icon,.e-con>.elementor-widget-spacer.elementor-widget-empty .elementor-widget-empty-icon{position:absolute;top:0;bottom:0;left:0;right:0;margin:auto;padding:0;width:22px;height:22px}</style></p>
+<p><img decoding="async" src="/blog/wp-content/uploads/2023/03/icon-description-automatically-generated.png" alt="Icon Description automatically generated" /></p>
 <p><strong>KAPE: Kroll Artifact Parser and Extractor</strong></p>
 <p>KAPE is a open source Windows-based triage program that will find and collect important forensically relevant Windows OS artifacts (System logs, Registry entries, etc.). KAPE can be ran on a live Windows operating or a mounted Windows image (i.e. dead-box forensics). KAPE utilizes Targets and Modules to collect and triage forensic artifacts.</p>
 <p><strong>How KAPE Works</strong></p>
@@ -139,13 +149,11 @@ Description automatically generated" srcset="/blog/wp-content/uploads/2023/07/a-
 <p>Targets: the type of artifacts (files, logs, or registry hives) that you can collect and store in a container (i.e. vhdx, zip).</p>
 <p>Modules: scripts that utilize third-party programs/parsers to process and export (i.e. .csv, zip) the artifacts.</p>
 <p>Below, we run KAPE to collect forensic artifacts on a Windows 10 machine suspected of being infected with Qakbot. The KAPE collection is being saved to an external HDD (D:).</p>
-<p><img decoding="async" src="/blog/wp-content/uploads/2023/03/word-image-1097-2.png" /><br />
-<strong>Figure 1: KAPE ran from an external drive.</strong></p>
-<p><img decoding="async" src="/blog/wp-content/uploads/2023/03/text-description-automatically-generated.png" alt="Text Description automatically generated" /><br />
-<strong>Figure 2: KAPE collection is done.</strong></p>
+<p><img decoding="async" src="/blog/wp-content/uploads/2023/03/word-image-1097-2.png" /> <br /><strong>Figure 1: KAPE ran from an external drive.</strong></p>
+<p><img decoding="async" src="/blog/wp-content/uploads/2023/03/text-description-automatically-generated.png" alt="Text Description automatically generated" /><br /><strong>Figure 2: KAPE collection is done.</strong></p>
 <p>The target forensic artifacts (files, logs, or registry hives) that I collect are stored in a vhdx container where I can later mount and analyze.</p>
-<p><img decoding="async" src="/blog/wp-content/uploads/2023/03/word-image-1097-4.jpeg" /><br />
-<strong>Figure 3: Target forensic artifacts stored in a xhdx file.</strong></p>
+<p><img decoding="async" src="/blog/wp-content/uploads/2023/03/word-image-1097-4.jpeg" /></p>
+<p><strong>Figure 3: Target forensic artifacts stored in a xhdx file.</strong></p>
 <p><img decoding="async" src="/blog/wp-content/uploads/2023/03/graphical-user-interface-text-application-email.jpeg" alt="Graphical user interface, text, application, email Description automatically generated" /><strong>Figure 4: The xhdx file is mounted for analysis.</strong></p>
 <p><img decoding="async" src="/blog/wp-content/uploads/2023/03/graphical-user-interface-application-table-exce.jpeg" alt="Graphical user interface, application, table, Excel Description automatically generated" /><strong>Figure 5: The CopyLog of all of the files that were collected in the xhdx file.</strong></p>
 <p><strong>Qakbot: A Banking Trojan</strong></p>
@@ -153,12 +161,10 @@ Description automatically generated" srcset="/blog/wp-content/uploads/2023/07/a-
 <p><strong>How This Qakbot Infection Started</strong></p>
 <p>Qakbot is typically delivered to the victim through various methods, including phishing emails, malspam, exploit kits, and exploiting vulnerabilities in software. The exact method of delivery may vary depending on the attackers&#8217; goals.</p>
 <p>In this instance, our digital forensic artifacts confirm that it was delivered through malspam; that contained a malicious Microsoft OneNote document (Qaknote) within a zip archive named Invoice #030223.zip. The malicious OneNote document (Invoice #030223.one) contained a social engineering Microsoft O365 themed image (double click “open”), that once clicked, it executes an embedded WScript file (O P E N .wsf).</p>
-<p><img decoding="async" src="/blog/wp-content/uploads/2023/03/graphical-user-interface-application-description.png" alt="Graphical user interface, application Description automatically generated" /><br />
-<strong>Figure 6: Embedded social engineering Microsoft O365 themed image (double click “open”)in the OneNote document (Invoice #030223.one).</strong></p>
+<p><img decoding="async" src="/blog/wp-content/uploads/2023/03/graphical-user-interface-application-description.png" alt="Graphical user interface, application Description automatically generated" /> <br /><strong>Figure 6: Embedded social engineering Microsoft O365 themed image (double click “open”)in the OneNote document (Invoice #030223.one).</strong></p>
 <p><strong>Qakbot &#8211; Forensic Artifacts</strong></p>
 <p>The review of the user’s Recent folder shows a lnk file for O P E N .wsf, indicating that it was double clicked and executed. Microsoft Protection (MPLog) was able to log the execution of this WScript file (O P E N .wsf) as having PID:7636 and the process start time: 133225496244686642 (LDAP/FILETIME) which converts to Sunday, March 5, 2023 11:13:44 PM GMT-05:00.</p>
-<p><img decoding="async" src="/blog/wp-content/uploads/2023/03/word-image-1097-8.jpeg" /><br />
-<strong>Figure 7: Lnk file (located in Recent folder) pointing to the WScript file (O P E N .wsf) that the user executed.</strong></p>
+<p><img decoding="async" src="/blog/wp-content/uploads/2023/03/word-image-1097-8.jpeg" /><strong>Figure 7: Lnk file (located in Recent folder) pointing to the WScript file (O P E N .wsf) that the user executed.</strong></p>
 <p><strong><img loading="lazy" decoding="async" src="/blog/wp-content/uploads/2023/03/Windows_Defender_log_pid_start_wsf.jpg" alt="" width="440" height="18" /> </strong></p>
 <p><strong>Figure 8: Microsoft Protection logging the PID and execution time of the WScript file (O P E N .wsf).</strong></p>
 <p>The WScript file invokes PowerShell to download a malicious Qakbot .dll from the following URL:</p>

@@ -12,13 +12,13 @@
 	<atom:link href="/blog/feed/" rel="self" type="application/rss+xml" />
 	<link>/blog/</link>
 	<description></description>
-	<lastBuildDate>Sun, 12 Nov 2023 15:55:21 +0000</lastBuildDate>
+	<lastBuildDate>Mon, 29 Jan 2024 17:17:14 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
 	<sy:updateFrequency>
 	1	</sy:updateFrequency>
-	<generator>https://wordpress.org/?v=6.4.1</generator>
+	<generator>https://wordpress.org/?v=6.4.2</generator>
 
 <image>
 	<url>/blog/wp-content/uploads/2023/03/cropped-android-chrome-512x512-1-32x32.png</url>
@@ -28,6 +28,133 @@
 	<height>32</height>
 </image> 
 	<item>
+		<title>Lockbit Ransomware 3.0 leverages malicious Word Documents</title>
+		<link>/blog/post_1-23-24_lockbit_ransomware_3-0/?utm_source=rss#038;utm_medium=rss&#038;utm_campaign=post_1-23-24_lockbit_ransomware_3-0</link>
+					<comments>/blog/post_1-23-24_lockbit_ransomware_3-0/#respond</comments>
+		
+		<dc:creator><![CDATA[malwr0nwind0z]]></dc:creator>
+		<pubDate>Wed, 24 Jan 2024 03:05:08 +0000</pubDate>
+				<category><![CDATA[Malware Analysis]]></category>
+		<category><![CDATA[3.0]]></category>
+		<category><![CDATA[black]]></category>
+		<category><![CDATA[doc]]></category>
+		<category><![CDATA[loader]]></category>
+		<category><![CDATA[lockbit]]></category>
+		<category><![CDATA[macros]]></category>
+		<category><![CDATA[malspam]]></category>
+		<category><![CDATA[malware]]></category>
+		<category><![CDATA[malwr0nwind0z]]></category>
+		<category><![CDATA[paste.ee]]></category>
+		<category><![CDATA[PowerShell]]></category>
+		<category><![CDATA[raas]]></category>
+		<category><![CDATA[ransomware]]></category>
+		<category><![CDATA[word]]></category>
+		<guid isPermaLink="false">https://malwr0nwind0z.com/?p=1414</guid>
+
+					<description><![CDATA[<p>Lockbit Ransomware Lockbit is a well-known ransomware-as-a-service (RAAS) that first emerged in 2019. The Lockbit group threat actors or RAAS affiliates first target a system, once this system is compromised. Its file system is encrypted and a ransom note is dropped on the victim’s computer. This note contains instructions on how to make the ransom [&#8230;]</p>
+<p>The post <a href="/blog/post_1-23-24_lockbit_ransomware_3-0/">Lockbit Ransomware 3.0 leverages malicious Word Documents</a> first appeared on <a href="/blog/">malwr0nwind0z</a>.</p>]]></description>
+										<content:encoded><![CDATA[<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+<div class="ast-oembed-container " style="height: 100%;"><iframe title="Lockbit Ransomware 3.0 leverages malicious Word Documents" width="1240" height="698" src="https://www.youtube.com/embed/X3ngD7lI35Q?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+</div><figcaption class="wp-element-caption"><strong>Video 1: Watch the companion video that this blog post inspired.</strong></figcaption></figure>
+
+
+<p><strong>Lockbit Ransomware</strong></p>
+<p>Lockbit is a well-known ransomware-as-a-service (RAAS) that first emerged in 2019. The Lockbit group threat actors or RAAS affiliates first target a system, once this system is compromised. Its file system is encrypted and a ransom note is dropped on the victim’s computer. This note contains instructions on how to make the ransom payment.</p>
+<p>Lockbit operators are known to engage in a double-extortion tactic. This involves not only encrypting the files but also exfiltrating sensitive data before encryption. The Lockbit operators then threaten to leak the victim’s data unless the ransom is paid.</p>
+<p><strong>How this Lockbit Ransomware works</strong></p>
+<p>Lockbit ransomware is typically delivered (attack vectors) to the victim through various methods: phishing emails, malicious spam (malspam), software vulnerabilities, RDP exploitation, and post exploitation kits.</p>
+<p>During this particular ransomware campaign, the ransomware was distributed to unsuspecting victims. They were tricked into opening a malicious Microsoft Word document named werili.docx. This malicious Word document contained the following social engineering images: “Select Enable Editing” and “Select Enable Content” (Figure 1), that enticed the unaware victim into enabling editing which then executed the embedded VBA macros, resulting in the encryption of the victim’s computer.</p>
+<p><img fetchpriority="high" decoding="async" width="1346" height="707" class="wp-image-1416" src="/blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-description-automatica.png" alt="A screenshot of a computer
+
+Description automatically generated" srcset="/blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-description-automatica.png 1346w, /blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-description-automatica-300x158.png 300w, /blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-description-automatica-1024x538.png 1024w, /blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-description-automatica-768x403.png 768w" sizes="(max-width: 1346px) 100vw, 1346px" /><em>Figure 1: </em>Word document contained social engineering images: “Enable Editing” and “Select Enable Content”, that goaded the unaware victims into enabling editing which then executed the embedded VBA macros.</p>
+<p><strong>Analysis of the Stage 1 loader – werili.docx</strong></p>
+<p>All office document files (i.e. docx, xlsx and pptx) are archive files. Meaning that you can change the extension to .zip and unzip it or it can be directly opened via tools like Winzip or 7zip to extract the contents of these files.</p>
+<p>Threat actors often abuse the pre-built file templates called ./word_rels/settings.xml.rels or ./word/_rels/settings.xml.rels (Figure 2). These templates are created within the office document files and normally contain the remote or local path to another template with the extension .dotm that will be automatically loaded upon opening the document.</p>
+<p><img decoding="async" width="1366" height="88" class="wp-image-1417" src="/blog/wp-content/uploads/2024/01/word-image-1414-2.png" srcset="/blog/wp-content/uploads/2024/01/word-image-1414-2.png 1366w, /blog/wp-content/uploads/2024/01/word-image-1414-2-300x19.png 300w, /blog/wp-content/uploads/2024/01/word-image-1414-2-1024x66.png 1024w, /blog/wp-content/uploads/2024/01/word-image-1414-2-768x49.png 768w" sizes="(max-width: 1366px) 100vw, 1366px" /><em>Figure 2: settings.xml.rels showed the target url that is hosting the template .dotm file.</em></p>
+<p>After further review, I can see that the threat actors decompress the .docx file and change the <em>Target</em> value in the <em>settings.xml.rels</em> file to load their desired template and again compressed it to a .docx file.</p>
+<p>Please, note that Target does not need to be local, it can be remote as well, in this case we can see a URL in Target value i.e. “Target=&amp;#x68ttps[:]//learndash[.]825testsites[.]com/b/fgi5k8.dotm”<em>(</em>&amp;#x68 converts to h<em>).</em></p>
+<p>We have two office document files: “werili.docx” and “fgi5k8.dotm” (template file). As the victim opens werili.docx it will download the template file (fgi5k8.dotm) along with its macros and as a result the macros will be automatically executed (Figure 3).</p>
+<p><img decoding="async" width="802" height="614" class="wp-image-1418" src="/blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-description-automatica-1.png" alt="A screenshot of a computer
+
+Description automatically generated" srcset="/blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-description-automatica-1.png 802w, /blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-description-automatica-1-300x230.png 300w, /blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-description-automatica-1-768x588.png 768w" sizes="(max-width: 802px) 100vw, 802px" /><br /><em>Figure 3: </em>werili.docx<em> downloading the template dotm file (</em>fgi5k8.dotm<em>) along with its macros and as a result the macros will get executed.</em></p>
+<p><strong>Analysis of the Stage 2 loader – fgi5k8.dotm</strong></p>
+<p>I utilized Microsoft Word’s Developer Tools to analyze the embedded VB macros from the downloaded fgi5k8.dotm file. A quick review of the VB macro after loading it I could see that it was obfuscated. So, to save time I decided to dynamically open and run the malicious Word document in debugger mode (Figure 4 &amp; 5), then let CMD Watcher v0.3 capture (Figure 6) the malicious PowerShell script. Just from my past experience, I knew that the VB macros would ultimately invoke a PowerShell.</p>
+<p><img loading="lazy" decoding="async" width="1366" height="768" class="wp-image-1419" src="/blog/wp-content/uploads/2024/01/a-computer-screen-with-a-white-screen-description.png" alt="A computer screen with a white screen
+
+Description automatically generated" srcset="/blog/wp-content/uploads/2024/01/a-computer-screen-with-a-white-screen-description.png 1366w, /blog/wp-content/uploads/2024/01/a-computer-screen-with-a-white-screen-description-300x169.png 300w, /blog/wp-content/uploads/2024/01/a-computer-screen-with-a-white-screen-description-1024x576.png 1024w, /blog/wp-content/uploads/2024/01/a-computer-screen-with-a-white-screen-description-768x432.png 768w" sizes="(max-width: 1366px) 100vw, 1366px" /><em>Figure 4: </em>fgi5k8.dotm’s VB<em> macros executed upon opening.</em></p>
+<p><img loading="lazy" decoding="async" width="1166" height="729" class="wp-image-1420" src="/blog/wp-content/uploads/2024/01/a-computer-screen-shot-of-a-computer-description.png" alt="A computer screen shot of a computer
+
+Description automatically generated" srcset="/blog/wp-content/uploads/2024/01/a-computer-screen-shot-of-a-computer-description.png 1166w, /blog/wp-content/uploads/2024/01/a-computer-screen-shot-of-a-computer-description-300x188.png 300w, /blog/wp-content/uploads/2024/01/a-computer-screen-shot-of-a-computer-description-1024x640.png 1024w, /blog/wp-content/uploads/2024/01/a-computer-screen-shot-of-a-computer-description-768x480.png 768w" sizes="(max-width: 1166px) 100vw, 1166px" /><em style="font-size: 1rem; color: var(--ast-global-color-3); background-color: var(--ast-global-color-5);">Figure 5: </em><span style="font-size: 1rem; color: var(--ast-global-color-3); background-color: var(--ast-global-color-5);">fgi5k8.dotm’s VB</span><em style="font-size: 1rem; color: var(--ast-global-color-3); background-color: var(--ast-global-color-5);"> macros are obfuscated. I used Word’s Developer Tools to deobfuscate them.</em></p>
+<p><img loading="lazy" decoding="async" width="755" height="424" class="wp-image-1421" src="/blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-program-description-au.png" alt="A screenshot of a computer program
+
+Description automatically generated" srcset="/blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-program-description-au.png 755w, /blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-program-description-au-300x168.png 300w" sizes="(max-width: 755px) 100vw, 755px" /><br /><em>Figure 6: CMD Watcher v0.3 captured a snapshot of the malicious PowerShell script.</em></p>
+<p>After the VBA macros were executed a malicious PowerShell command was run. The PowerShell script utilized curl to download Lockbit payload from:</p>
+<p>https[:]//learndash[.]825testsites[.]com/b/abc.exe</p>
+<p>The downloaded Lockbit payload’s drop folder location (Figure 7):</p>
+<p>C:\Users\Public\cw3fd.exe (Classification: Lockbit payload; abc.exe is renamed once dropped to disk: cw3fd.exe).</p>
+<p><img loading="lazy" decoding="async" width="661" height="288" class="wp-image-1422" src="/blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-description-automatica-2.png" alt="A screenshot of a computer
+
+Description automatically generated" srcset="/blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-description-automatica-2.png 661w, /blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-description-automatica-2-300x131.png 300w" sizes="(max-width: 661px) 100vw, 661px" /><br /><em style="font-size: 1rem; color: var(--ast-global-color-3); background-color: var(--ast-global-color-5);">Figure 7: </em><span style="font-size: 1rem; color: var(--ast-global-color-3); background-color: var(--ast-global-color-5);">Downloaded Lockbit payload’s drop folder location</span><em style="font-size: 1rem; color: var(--ast-global-color-3); background-color: var(--ast-global-color-5);">.</em></p>
+<p><strong>Analysis of the Stage 3 payload – cw3fd.exe</strong></p>
+<p>After the Lockbit payload was dropped on the system, it ran and encrypted the victim’s file system. This variant is Lockbit 3.0, every encrypted file has a .ONa9v7hKI file extension (Figure 8) appended to the filename. Lockbit even changes the victim’s desktop wallpaper letting them know that they have been encrypted (Figure 10).</p>
+<p><img loading="lazy" decoding="async" width="652" height="405" class="wp-image-1423" src="/blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-description-automatica-3.png" alt="A screenshot of a computer
+
+Description automatically generated" srcset="/blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-description-automatica-3.png 652w, /blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-description-automatica-3-300x186.png 300w" sizes="(max-width: 652px) 100vw, 652px" /><br /><em style="font-size: 1rem; color: var(--ast-global-color-3); background-color: var(--ast-global-color-5);">Figure 8</em><span style="font-size: 1rem; color: var(--ast-global-color-3); background-color: var(--ast-global-color-5);">: Lockbit encrypted the user’s files and appended a .ONa9v7hKI file extension to the filename.</span></p>
+<p><img loading="lazy" decoding="async" width="1366" height="703" class="wp-image-1424" src="/blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-description-automatica-4.png" alt="A screenshot of a computer
+
+Description automatically generated" srcset="/blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-description-automatica-4.png 1366w, /blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-description-automatica-4-300x154.png 300w, /blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-description-automatica-4-1024x527.png 1024w, /blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-description-automatica-4-768x395.png 768w" sizes="(max-width: 1366px) 100vw, 1366px" /><em>Figure 9: </em>This ransom note (ONa9v7hKI.READ.txt) was dropped in every directory.</p>
+<p><img loading="lazy" decoding="async" width="811" height="314" class="wp-image-1425" src="/blog/wp-content/uploads/2024/01/a-black-screen-with-white-text-description-automa.png" alt="A black screen with white text
+
+Description automatically generated" srcset="/blog/wp-content/uploads/2024/01/a-black-screen-with-white-text-description-automa.png 811w, /blog/wp-content/uploads/2024/01/a-black-screen-with-white-text-description-automa-300x116.png 300w, /blog/wp-content/uploads/2024/01/a-black-screen-with-white-text-description-automa-768x297.png 768w" sizes="(max-width: 811px) 100vw, 811px" /><br /><em style="font-size: 1rem; color: var(--ast-global-color-3); background-color: var(--ast-global-color-5);">Figure 10: </em><span style="font-size: 1rem; color: var(--ast-global-color-3); background-color: var(--ast-global-color-5);">Lockbit’s desktop wallpaper message to the victim.</span></p>
+<p>A standard practice by many ransomware variant is to delete shadow copies. Lockbit does this as well, in order to prevent the recovery of encrypted files from shadow copies, Lockbit 3.0 terminates and deletes the VSS service (Figure 11).</p>
+<p>Also, it disabled both Windows Service Center Service (Figure 12) and Windows Defender ATP Service (Figure 13), as well.</p>
+<p><img loading="lazy" decoding="async" width="369" height="135" class="wp-image-1426" src="/blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-error-description-auto.png" alt="A screenshot of a computer error
+
+Description automatically generated" srcset="/blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-error-description-auto.png 369w, /blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-error-description-auto-300x110.png 300w" sizes="(max-width: 369px) 100vw, 369px" /><br /><em>Figure 11: Process Hacker captured </em>Lockbit deletion of the VSS (Volume Shadow Copy) Service.</p>
+<p><img loading="lazy" decoding="async" width="371" height="157" class="wp-image-1427" src="/blog/wp-content/uploads/2024/01/a-screen-shot-of-a-computer-description-automatic.png" alt="A screen shot of a computer
+
+Description automatically generated" srcset="/blog/wp-content/uploads/2024/01/a-screen-shot-of-a-computer-description-automatic.png 371w, /blog/wp-content/uploads/2024/01/a-screen-shot-of-a-computer-description-automatic-300x127.png 300w" sizes="(max-width: 371px) 100vw, 371px" /><br /><em>Figure 12: Process Hacker captured </em>Lockbit deletion of the Windows Security Center Service.</p>
+<p><img loading="lazy" decoding="async" width="369" height="154" class="wp-image-1428" src="/blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-error-description-auto-1.png" alt="A screenshot of a computer error
+
+Description automatically generated" srcset="/blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-error-description-auto-1.png 369w, /blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-error-description-auto-1-300x125.png 300w" sizes="(max-width: 369px) 100vw, 369px" /><br /><em>Figure 13: Process Hacker captured </em>Lockbit deletion of the Windows Defender ATP Service.</p>
+<p>Next, I started reviewing the code of cw3fd.exe, after looking at the strings using Bintext (Figure 14), this file was heavily obfuscated within each of the functions. This was definitely a packed file.</p>
+<p><img loading="lazy" decoding="async" width="1362" height="730" class="wp-image-1429" src="/blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-description-automatica-5.png" alt="A screenshot of a computer
+
+Description automatically generated" srcset="/blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-description-automatica-5.png 1362w, /blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-description-automatica-5-300x161.png 300w, /blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-description-automatica-5-1024x549.png 1024w, /blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-description-automatica-5-768x412.png 768w" sizes="(max-width: 1362px) 100vw, 1362px" /><em>Figure 14: </em>Review of strings using Bintext revealed this file was heavily obfuscated.</p>
+<p>The next step was to look for the file’s unpacking routine using IDA Pro, which brought attention to the use of VirtualAlloc which is used by malware to allocate memory when it is ready to unpack itself into memory. The appropriate breakpoints were set and the file was able to be dumped. Review of contents in the Dump Window, showed the binary was an executable (File header: MZ) (Figure 15).</p>
+<p><img loading="lazy" decoding="async" width="1364" height="730" class="wp-image-1430" src="/blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-description-automatica-6.png" alt="A screenshot of a computer
+
+Description automatically generated" srcset="/blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-description-automatica-6.png 1364w, /blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-description-automatica-6-300x161.png 300w, /blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-description-automatica-6-1024x548.png 1024w, /blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-description-automatica-6-768x411.png 768w" sizes="(max-width: 1364px) 100vw, 1364px" /><em>Figure 15: </em>Review of contents in the Dump Window, showed the binary was an executable.</p>
+<p>The Lockbit binary is now unpacked, it is known for its dynamic API resolution at runtime which makes reverse engineering the sample more difficult and helps conceal functions from debuggers (Figure 16).</p>
+<p><img loading="lazy" decoding="async" width="1091" height="450" class="wp-image-1431" src="/blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-description-automatica-7.png" alt="A screenshot of a computer
+
+Description automatically generated" srcset="/blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-description-automatica-7.png 1091w, /blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-description-automatica-7-300x124.png 300w, /blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-description-automatica-7-1024x422.png 1024w, /blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-description-automatica-7-768x317.png 768w" sizes="(max-width: 1091px) 100vw, 1091px" /><em>Figure 16: This function dynamically resolves the APIs at runtime</em>.</p>
+<p>As mentioned earlier, Lockbit dropped a ransom note in every directory. The function builds the ransom note is shown below (Figure 17).</p>
+<p><img loading="lazy" decoding="async" width="1092" height="445" class="wp-image-1432" src="/blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-description-automatica-8.png" alt="A screenshot of a computer
+
+Description automatically generated" srcset="/blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-description-automatica-8.png 1092w, /blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-description-automatica-8-300x122.png 300w, /blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-description-automatica-8-1024x417.png 1024w, /blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-description-automatica-8-768x313.png 768w" sizes="(max-width: 1092px) 100vw, 1092px" /><em>Figure 17: </em>The function that builds the ransom note.</p>
+<p>Lockbit is also known for its string obfuscation. The following function is a Base64 decoding function used to decode strings (Figure 18).</p>
+<p><img loading="lazy" decoding="async" width="1049" height="448" class="wp-image-1433" src="/blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-description-automatica-9.png" alt="A screenshot of a computer
+
+Description automatically generated" srcset="/blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-description-automatica-9.png 1049w, /blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-description-automatica-9-300x128.png 300w, /blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-description-automatica-9-1024x437.png 1024w, /blog/wp-content/uploads/2024/01/a-screenshot-of-a-computer-description-automatica-9-768x328.png 768w" sizes="(max-width: 1049px) 100vw, 1049px" /><em>Figure 18: </em>Base64 decoding function.</p>
+<p>Lockbit is a ransomware that can compromise the security of a target system and then it encrypts the file system. To protect against Lockbit ransomware attacks, it is important to be aware of the signs of infection and implement best practices for cybersecurity. Organizations should implement a backup strategy that keeps backups offline, not connected to your network and if possible offsite in a different location. By staying informed and vigilant, organizations and individuals can reduce their risk of falling victim to Lockbit.</p>
+<p><strong>IOCs:</strong></p>
+<p>werili.docx (MD5: 244e475d884c455bb1fbad1a4294f21c); Classification: Lockbit Loader</p>
+<p>fgi5k8.dotm (MD5: f2a9bc0e23f6ad044cb7c835826fa8fe) Classification: Lockbit Loader</p>
+<p>cw3fd.exe (MD5: 7a83a738db05418c0ae6795b317a45f9) Classification: Lockbit payload</p>
+<p>.ONa9v7hKI (Encrypted extension name)</p>
+<p>ONa9v7hKI.README.txt (Ransom note file name)</p>
+<p><strong>Network IOCs:</strong></p>
+<p>https[:]//learndash[.]825testsites[.]com</p>
+<p>http[:]//lockbitapt[xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx].onion (ONION domain ([46 random characters]))</p>
+<p>http[:]//lockbitapt[xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx].onion.ly (ONION domain ([46 random characters]))</p><p>The post <a href="/blog/post_1-23-24_lockbit_ransomware_3-0/">Lockbit Ransomware 3.0 leverages malicious Word Documents</a> first appeared on <a href="/blog/">malwr0nwind0z</a>.</p>]]></content:encoded>
+					
+					<wfw:commentRss>/blog/post_1-23-24_lockbit_ransomware_3-0/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
 		<title>Originality.AI Hack &#8211; How to get &#8220;Unlimited&#8221; FREE Credits</title>
 		<link>/blog/post_11-11-23_originality_ai_hack_unlimited_free_credits/?utm_source=rss#038;utm_medium=rss&#038;utm_campaign=post_11-11-23_originality_ai_hack_unlimited_free_credits</link>
 					<comments>/blog/post_11-11-23_originality_ai_hack_unlimited_free_credits/#respond</comments>
@@ -35,21 +162,20 @@
 		<dc:creator><![CDATA[malwr0nwind0z]]></dc:creator>
 		<pubDate>Sun, 12 Nov 2023 06:57:54 +0000</pubDate>
 				<category><![CDATA[Red Team]]></category>
-		<category><![CDATA[@Luckyjohnsoncoaching]]></category>
 		<category><![CDATA[ai detection]]></category>
+		<category><![CDATA[ai detector]]></category>
 		<category><![CDATA[chatgpt]]></category>
 		<category><![CDATA[free credits]]></category>
 		<category><![CDATA[hack]]></category>
-		<category><![CDATA[Lucky Johnson Coaching]]></category>
+		<category><![CDATA[malwr0nwind0z]]></category>
 		<category><![CDATA[originality ai]]></category>
 		<category><![CDATA[unlimited]]></category>
 		<guid isPermaLink="false">https://malwr0nwind0z.com/?p=1241</guid>
 
-					<description><![CDATA[<p>The YouTube video explains an Originality.AI Hack and&#160;how&#160;to get unlimited free credits for utilizing this program. The hack involves using a temporary email address generator website to create an temporary email address and sign up for a free Originality.AI account which grants you 50 free credits for each free&#160;account you sign up with. I say &#8230;</p>
-<p class="read-more"> <a class="" href="/blog/post_11-11-23_originality_ai_hack_unlimited_free_credits/"> <span class="screen-reader-text">Originality.AI Hack &#8211; How to get &#8220;Unlimited&#8221; FREE Credits</span> Read More &#187;</a></p>
+					<description><![CDATA[<p>The YouTube video explains an Originality.AI Hack and&#160;how&#160;to get unlimited free credits for utilizing this program. The hack involves using a temporary email address generator website to create an temporary email address and sign up for a free Originality.AI account which grants you 50 free credits for each free&#160;account you sign up with. I say [&#8230;]</p>
 <p>The post <a href="/blog/post_11-11-23_originality_ai_hack_unlimited_free_credits/">Originality.AI Hack – How to get “Unlimited” FREE Credits</a> first appeared on <a href="/blog/">malwr0nwind0z</a>.</p>]]></description>
 										<content:encoded><![CDATA[<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
-<div class="ast-oembed-container" style="height: 100%;"><iframe title="How to Get Originality Ai FREE Credits" width="1240" height="698" src="https://www.youtube.com/embed/gbyeAcUgzBE?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+<div class="ast-oembed-container " style="height: 100%;"><iframe title="Originality.AI Hack – How to get “Unlimited” FREE Credits" width="1240" height="698" src="https://www.youtube.com/embed/v4zZkyg_M8U?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
 </div></figure>
 
 
@@ -70,7 +196,7 @@
 
 
 
-<p>Lastly, I want to give a shoutout to @Luckyjohnsoncoaching for creating the YouTube video.</p>
+<p><strong>Disclaimer:</strong> The content in this blog post is intended for educational only and to inform readers about vulnerabilities, tech hacks, life-hacks, technology concepts, techniques, tactics and best practices. The author and the blog owner are not responsible for any actions taken by the readers; that may be based on any of the information provided in this blog post.</p>
 
 
 
@@ -78,7 +204,7 @@
 
 
 
-<p><strong>Disclaimer:</strong> The content in this blog post is intended for educational only and to inform readers about vulnerabilities, tech hacks, life-hacks, technology concepts, techniques, tactics and best practices. The author and the blog owner are not responsible for any actions taken by the readers; that may be based on any of the information provided in this blog post.</p><p>The post <a href="/blog/post_11-11-23_originality_ai_hack_unlimited_free_credits/">Originality.AI Hack – How to get “Unlimited” FREE Credits</a> first appeared on <a href="/blog/">malwr0nwind0z</a>.</p>]]></content:encoded>
+<p></p><p>The post <a href="/blog/post_11-11-23_originality_ai_hack_unlimited_free_credits/">Originality.AI Hack – How to get “Unlimited” FREE Credits</a> first appeared on <a href="/blog/">malwr0nwind0z</a>.</p>]]></content:encoded>
 					
 					<wfw:commentRss>/blog/post_11-11-23_originality_ai_hack_unlimited_free_credits/feed/</wfw:commentRss>
 			<slash:comments>0</slash:comments>
@@ -103,26 +229,31 @@
 		<category><![CDATA[Living off the land]]></category>
 		<category><![CDATA[LOLBINs]]></category>
 		<category><![CDATA[LOTL]]></category>
+		<category><![CDATA[malwr0nwind0z]]></category>
 		<category><![CDATA[Never Gonna Give You Up]]></category>
 		<category><![CDATA[pen testing]]></category>
 		<category><![CDATA[penetration testing]]></category>
 		<category><![CDATA[pentesting]]></category>
 		<category><![CDATA[PowerShell]]></category>
 		<category><![CDATA[PowerShell.exe]]></category>
-		<category><![CDATA[PSHtml5]]></category>
 		<category><![CDATA[red team]]></category>
-		<category><![CDATA[Rick Rick Astley]]></category>
+		<category><![CDATA[Rick Astley]]></category>
 		<category><![CDATA[Rick Roll]]></category>
 		<category><![CDATA[Rick Rolling]]></category>
+		<category><![CDATA[rickroll; Invoke-PSHtml5.ps1]]></category>
 		<guid isPermaLink="false">https://malwr0nwind0z.com/?p=1220</guid>
 
-					<description><![CDATA[<p>GIF 1: Automated version of the Rick Roll meme (Rick Astley &#8211; Never Gonna Give You Up). I recently conducted a pentesting exercise for one of my clients. One main focus of the exercise was to detect and prevent a &#8220;Living off the Land&#8221; (LOTL) attack. &#8220;Living off the Land&#8221; (LOTL) in the context of &#8230;</p>
-<p class="read-more"> <a class="" href="/blog/post_10-23-23_living_off_the_land_pentest/"> <span class="screen-reader-text">The Ultimate Test: Living Off the Land (LOTL) while Rick Rollin</span> Read More &#187;</a></p>
+					<description><![CDATA[<p>I recently conducted a pentesting exercise for one of my clients. One main focus of the exercise was to detect and prevent a &#8220;Living off the Land&#8221; (LOTL) attack. &#8220;Living off the Land&#8221; (LOTL) in the context of cybersecurity refers to a technique used by hackers to carry out attacks using tools and utilities that [&#8230;]</p>
 <p>The post <a href="/blog/post_10-23-23_living_off_the_land_pentest/">The Ultimate Test: Living Off the Land (LOTL) while Rick Rollin</a> first appeared on <a href="/blog/">malwr0nwind0z</a>.</p>]]></description>
-										<content:encoded><![CDATA[<p><img fetchpriority="high" decoding="async" width="600" height="558" class="wp-image-1221" src="/blog/wp-content/uploads/2023/10/a-black-background-with-a-black-square-descriptio.gif" alt="A black background with a black square
+										<content:encoded><![CDATA[<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+<div class="ast-oembed-container " style="height: 100%;"><iframe title="LOLbins: Living Off the Land while Rick Rollin" width="1240" height="698" src="https://www.youtube.com/embed/YEPOBSatNgA?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+</div><figcaption class="wp-element-caption"><strong>Video 1: Watch the companion video that this blog post inspired.</strong></figcaption></figure>
 
-Description automatically generated with medium confidence" /></p>
-<p><strong>GIF 1: Automated version of the Rick Roll meme (Rick Astley &#8211; Never Gonna Give You Up).</strong></p>
+
+
+<p></p>
+
+
 <p>I recently conducted a pentesting exercise for one of my clients. One main focus of the exercise was to detect and prevent a &#8220;Living off the Land&#8221; (LOTL) attack.</p>
 <p>&#8220;Living off the Land&#8221; (LOTL) in the context of cybersecurity refers to a technique used by hackers to carry out attacks using tools and utilities that are already</p>
 <p>present on a compromised system or network. Instead of relying on downloading malicious software, cybercriminals exploit legitimate programs and scripts to evade detection.</p>
@@ -145,40 +276,29 @@ Description automatically generated with medium confidence" /></p>
 <li>csc.exe</li>
 </ul>
 <p>In this test scenario, I sent a malspam email with an attached zip file that contained a batch script (Past_Due_Invoice.pdf.bat) once the user clicked on the batch script, the cmd.exe (Parent process) is used to run the batch file (Past_Due_Invoice.pdf.bat) that ultimately downloads and runs a PowerShell script(past_due_invoice.pdf.ps1).</p>
-<p><img decoding="async" width="1366" height="420" class="wp-image-1222" src="/blog/wp-content/uploads/2023/10/a-screenshot-of-a-computer-description-automatica.png" alt="A screenshot of a computer
-
-Description automatically generated" srcset="/blog/wp-content/uploads/2023/10/a-screenshot-of-a-computer-description-automatica.png 1366w, /blog/wp-content/uploads/2023/10/a-screenshot-of-a-computer-description-automatica-300x92.png 300w, /blog/wp-content/uploads/2023/10/a-screenshot-of-a-computer-description-automatica-1024x315.png 1024w, /blog/wp-content/uploads/2023/10/a-screenshot-of-a-computer-description-automatica-768x236.png 768w" sizes="(max-width: 1366px) 100vw, 1366px" /></p>
+<p><img decoding="async" src="/blog/wp-content/uploads/2023/10/a-screenshot-of-a-computer-description-automatica.png" alt="A screenshot of a computer
+Description automatically generated" /></p>
 <p><strong>Figure 1: Malspam contained a batch script within a zip archive named Past_Due_Invoice.pdf.zip.</strong></p>
-<p><img loading="lazy" decoding="async" width="700" height="260" class="wp-image-1223" src="/blog/wp-content/uploads/2023/10/a-screenshot-of-a-computer-program-description-au.png" alt="A screenshot of a computer program
-
-Description automatically generated" srcset="/blog/wp-content/uploads/2023/10/a-screenshot-of-a-computer-program-description-au.png 700w, /blog/wp-content/uploads/2023/10/a-screenshot-of-a-computer-program-description-au-300x111.png 300w" sizes="(max-width: 700px) 100vw, 700px" /></p>
-<p><strong><a id="post-1220-_Hlk148928289"></a> Figure 2: This batch file (Past_Due_Invoice.pdf.bat) that ultimately downloads and runs a PowerShell script(past_due_invoice.pdf.ps1).</strong></p>
-<p><img loading="lazy" decoding="async" width="544" height="506" class="wp-image-1224" src="/blog/wp-content/uploads/2023/10/a-screenshot-of-a-computer-description-automatica-1.png" alt="A screenshot of a computer
-
-Description automatically generated" srcset="/blog/wp-content/uploads/2023/10/a-screenshot-of-a-computer-description-automatica-1.png 544w, /blog/wp-content/uploads/2023/10/a-screenshot-of-a-computer-description-automatica-1-300x279.png 300w" sizes="(max-width: 544px) 100vw, 544px" /></p>
-<p><strong>Figure 3: The PowerShell script (past_due_invoice.pdf.ps1) is dropped in the Temp folder.</strong></p>
+<p><img decoding="async" src="/blog/wp-content/uploads/2023/10/a-screenshot-of-a-computer-program-description-au.png" alt="A screenshot of a computer program
+Description automatically generated" /><strong><a id="post-1220-_Hlk148928289"></a><br />Figure 2: This batch file (Past_Due_Invoice.pdf.bat) that ultimately downloads and runs a PowerShell script(past_due_invoice.pdf.ps1).</strong></p>
+<p><img decoding="async" src="/blog/wp-content/uploads/2023/10/a-screenshot-of-a-computer-description-automatica-1.png" alt="A screenshot of a computer
+Description automatically generated" /><br /><strong>Figure 3: The PowerShell script (past_due_invoice.pdf.ps1) is dropped in the Temp folder.</strong></p>
 <p>This PowerShell script’s 1<sup>st</sup> code block checks if the script is running in a PowerShell environment other than the interactive console (&#8220;ConsoleHost&#8221;). If it is not the console host, it starts a new PowerShell process, downloads a script from a specified URL (<a href="http://bit.ly/e0Mw9w">http://bit.ly/e0Mw9w</a> un-shortened to https://www.leeholmes[.]com/projects/ps_html5/Invoke-PSHtml5.ps1) and executes it. If it is running in the console host, the script simply terminates without performing any additional actions.</p>
-<p><img loading="lazy" decoding="async" width="1366" height="432" class="wp-image-1225" src="/blog/wp-content/uploads/2023/10/a-screen-shot-of-a-computer-description-automatic.png" alt="A screen shot of a computer
-
-Description automatically generated" srcset="/blog/wp-content/uploads/2023/10/a-screen-shot-of-a-computer-description-automatic.png 1366w, /blog/wp-content/uploads/2023/10/a-screen-shot-of-a-computer-description-automatic-300x95.png 300w, /blog/wp-content/uploads/2023/10/a-screen-shot-of-a-computer-description-automatic-1024x324.png 1024w, /blog/wp-content/uploads/2023/10/a-screen-shot-of-a-computer-description-automatic-768x243.png 768w" sizes="(max-width: 1366px) 100vw, 1366px" /></p>
-<p><a id="post-1220-_Hlk148928660"></a><strong> Figure 4: See the encoded Base64 string ($data).</strong></p>
+<p><img decoding="async" src="/blog/wp-content/uploads/2023/10/a-screen-shot-of-a-computer-description-automatic.png" alt="A screen shot of a computer
+Description automatically generated" /><a id="post-1220-_Hlk148928660"></a><strong>Figure 4: See the encoded Base64 string ($data).</strong></p>
 <p>This 2<sup>nd</sup> code block takes the Base64 encoded string ($data), decodes it, decompresses the binary data using GZip compression (decompresses it), interprets the resulting data as PowerShell code, and then executes it.</p>
-<p><img loading="lazy" decoding="async" width="866" height="202" class="wp-image-1226" src="/blog/wp-content/uploads/2023/10/a-screenshot-of-a-computer-program-description-au-1.png" alt="A screenshot of a computer program
-
-Description automatically generated" srcset="/blog/wp-content/uploads/2023/10/a-screenshot-of-a-computer-program-description-au-1.png 866w, /blog/wp-content/uploads/2023/10/a-screenshot-of-a-computer-program-description-au-1-300x70.png 300w, /blog/wp-content/uploads/2023/10/a-screenshot-of-a-computer-program-description-au-1-768x179.png 768w" sizes="(max-width: 866px) 100vw, 866px" /></p>
-<p><strong><a id="post-1220-_Hlk148928877"></a>Figure 5: The encoded Base64 is decoded, then decompressed using GZip.</strong></p>
-<p><img loading="lazy" decoding="async" width="624" height="358" class="wp-image-1227" src="/blog/wp-content/uploads/2023/10/a-screenshot-of-a-computer-description-automatica-2.png" alt="A screenshot of a computer
-
-Description automatically generated" srcset="/blog/wp-content/uploads/2023/10/a-screenshot-of-a-computer-description-automatica-2.png 624w, /blog/wp-content/uploads/2023/10/a-screenshot-of-a-computer-description-automatica-2-300x172.png 300w" sizes="(max-width: 624px) 100vw, 624px" /></p>
-<p><strong>Figure 6: Cyberchef recipe: “From Base64” and “GunZip”.</strong></p>
+<p><img decoding="async" src="/blog/wp-content/uploads/2023/10/a-screenshot-of-a-computer-program-description-au-1.png" alt="A screenshot of a computer program
+Description automatically generated" /><strong><a id="post-1220-_Hlk148928877"></a><br />Figure 5: The encoded Base64 is decoded, then decompressed using GZip.</strong></p>
+<p><img decoding="async" src="/blog/wp-content/uploads/2023/10/a-screenshot-of-a-computer-description-automatica-2.png" alt="A screenshot of a computer
+Description automatically generated" /><br /><strong>Figure 6: Cyberchef recipe: “From Base64” and “GunZip”.</strong></p>
 <p>The decoded and decompress Base64 string code has a variable named $frames.</p>
 <p>The 3rd code block loops through the current frame(s) in the $frames array and is stored in the $frame variable. It generates an expansion string by arranging random elements (&#8216;$1&#8217;, &#8216;$2&#8217;, and &#8216;$3&#8217;) in a specific pattern. The frame is split into individual parts using tab as the separator. Certain groups of characters within each part are replaced with the generated expansion string. The modified parts are joined back together into a frame using tabs. The modified frame is stored back into the original array. This effectively changes the proper aspect ratio in the PowerShell window, that gives the animation (Rick Roll) movement.</p>
 <p>The last code block that I will discuss in this script. Opens and plays a Media Player mp3 file in the background, which is downloaded from <a href="http://www.leeholmes.com/projects/ps_html5/background.mp3">http://www.leeholmes.com/projects/ps_html5/background.mp3</a> while the animated Rick Roll runs in the foreground.</p>
-<p><img loading="lazy" decoding="async" width="729" height="628" class="wp-image-1228" src="/blog/wp-content/uploads/2023/10/a-screenshot-of-a-computer-program-description-au-2.png" alt="A screenshot of a computer program
-
-Description automatically generated" srcset="/blog/wp-content/uploads/2023/10/a-screenshot-of-a-computer-program-description-au-2.png 729w, /blog/wp-content/uploads/2023/10/a-screenshot-of-a-computer-program-description-au-2-300x258.png 300w" sizes="(max-width: 729px) 100vw, 729px" /></p>
-<p><strong>Figure 7: This code block runs through its main loop. Then downloads and plays a classic pop song.</strong></p>
+<p><img decoding="async" src="/blog/wp-content/uploads/2023/10/a-screenshot-of-a-computer-program-description-au-2.png" alt="A screenshot of a computer program
+Description automatically generated" /><br /><strong>Figure 7: This code block runs through its main loop. Then downloads and plays a classic pop song.</strong></p>
 <p>This PowerShell script ultimately is an automated version of the Rick Roll meme (Rick Astley &#8211; Never Gonna Give You Up). Created by PowerShell Developer Lee Holmes.</p>
+<p><img decoding="async" src="/blog/wp-content/uploads/2023/10/a-black-background-with-a-black-square-descriptio.gif" alt="A black background with a black square
+Description automatically generated with medium confidence" /><br /><strong>GIF 1: Automated version of the Rick Roll meme (Rick Astley &#8211; Never Gonna Give You Up).</strong></p>
 <p>In summary, &#8220;Living off the Land&#8221; attacks involve hackers utilizing existing, legitimate software and tools on a compromised system to carry out cyber attacks, making it harder for security measures to identify and prevent these malicious activities.</p>
 <p><strong>File Indicators:</strong></p>
 <p>Past_Due_Invoice.pdf.bat (MD5: 9AAEDA5770ADD96EEC1183F964FFA238) Classification: LOL-test-joke-not malicious.</p>
@@ -212,6 +332,7 @@ Description automatically generated" srcset="/blog/wp-content/uploads/2023/10/a-
 		<category><![CDATA[forensics]]></category>
 		<category><![CDATA[malspam]]></category>
 		<category><![CDATA[malware]]></category>
+		<category><![CDATA[malwr0nwind0z]]></category>
 		<category><![CDATA[pcap]]></category>
 		<category><![CDATA[remote access trojan]]></category>
 		<category><![CDATA[SMTP]]></category>
@@ -220,10 +341,14 @@ Description automatically generated" srcset="/blog/wp-content/uploads/2023/10/a-
 		<category><![CDATA[Wireshark]]></category>
 		<guid isPermaLink="false">https://malwr0nwind0z.com/?p=1165</guid>
 
-					<description><![CDATA[<p>Simplifying Network Forensic Analysis: Exploring Wireshark PCAP Files with Brim Wireshark is a powerful network protocol analyzer that allows network administrators and security professionals to monitor and inspect network traffic. It captures packets in real-time or reads from existing capture files, known as PCAP files, for offline analysis. However, as the complexity of network data &#8230;</p>
-<p class="read-more"> <a class="" href="/blog/post_7-25-23_network_forensics_agent_tesla/"> <span class="screen-reader-text">Network Forensics with Wireshark and Brim: Analyzing a PCAP from an Agent Tesla infection</span> Read More &#187;</a></p>
+					<description><![CDATA[<p>Simplifying Network Forensic Analysis: Exploring Wireshark PCAP Files with Brim Wireshark is a powerful network protocol analyzer that allows network administrators and security professionals to monitor and inspect network traffic. It captures packets in real-time or reads from existing capture files, known as PCAP files, for offline analysis. However, as the complexity of network data [&#8230;]</p>
 <p>The post <a href="/blog/post_7-25-23_network_forensics_agent_tesla/">Network Forensics with Wireshark and Brim: Analyzing a PCAP from an Agent Tesla infection</a> first appeared on <a href="/blog/">malwr0nwind0z</a>.</p>]]></description>
-										<content:encoded><![CDATA[<p><img loading="lazy" decoding="async" width="623" height="155" class="wp-image-1169" src="/blog/wp-content/uploads/2023/07/a-close-up-of-a-logo-description-automatically-ge.jpeg" alt="A close up of a logo
+										<content:encoded><![CDATA[<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+<div class="ast-oembed-container " style="height: 100%;"><iframe title="Network Forensics with Wireshark and Brim(Zui): Analyzing a PCAP from an Agent Tesla infection" width="1240" height="698" src="https://www.youtube.com/embed/EzwD3aUbnzg?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+</div><figcaption class="wp-element-caption"><strong>Video 1: Watch the companion video that this blog post inspired.</strong></figcaption></figure>
+
+
+<p><img loading="lazy" decoding="async" width="623" height="155" class="wp-image-1169" src="/blog/wp-content/uploads/2023/07/a-close-up-of-a-logo-description-automatically-ge.jpeg" alt="A close up of a logo
 
 Description automatically generated" srcset="/blog/wp-content/uploads/2023/07/a-close-up-of-a-logo-description-automatically-ge.jpeg 623w, /blog/wp-content/uploads/2023/07/a-close-up-of-a-logo-description-automatically-ge-300x75.jpeg 300w" sizes="(max-width: 623px) 100vw, 623px" /></p>
 <h4>Simplifying Network Forensic Analysis: Exploring Wireshark PCAP Files with Brim</h4>
@@ -259,7 +384,7 @@ Description automatically generated" srcset="/blog/wp-content/uploads/2023/07/a-
 
 Description automatically generated" srcset="/blog/wp-content/uploads/2023/07/a-screenshot-of-a-computer-description-automatica-1.png 1280w, /blog/wp-content/uploads/2023/07/a-screenshot-of-a-computer-description-automatica-1-300x213.png 300w, /blog/wp-content/uploads/2023/07/a-screenshot-of-a-computer-description-automatica-1-1024x727.png 1024w, /blog/wp-content/uploads/2023/07/a-screenshot-of-a-computer-description-automatica-1-768x545.png 768w" sizes="(max-width: 1280px) 100vw, 1280px" /><strong>Figure 4: Wireshark capture of C2 traffic showing customer data being sent to a compromised email address (schayer@marintravellft.com).</strong></p>
 <p><strong>Agent Tesla – Exfiltration detected by Brim’s Suricata</strong></p>
-<p>Lastly, I loaded the Wireshark PCAP file into Brim. Brim’s Suricata signatures were able to detect and alert on the C2 connection to IP 208.91.199.224:58, which is the data exfiltration over SMTP.</p>
+<p>Lastly, I loaded the Wireshark PCAP file into Brim. Brim’s Suricata signatures were able to detect and alert on the C2 connection to IP 208.91.199.224:587, which is the data exfiltration over SMTP.</p>
 <p><img loading="lazy" decoding="async" width="1918" height="1031" class="wp-image-1174" src="/blog/wp-content/uploads/2023/07/a-screenshot-of-a-computer-description-automatica-2.png" alt="A screenshot of a computer
 
 Description automatically generated" srcset="/blog/wp-content/uploads/2023/07/a-screenshot-of-a-computer-description-automatica-2.png 1918w, /blog/wp-content/uploads/2023/07/a-screenshot-of-a-computer-description-automatica-2-300x161.png 300w, /blog/wp-content/uploads/2023/07/a-screenshot-of-a-computer-description-automatica-2-1024x550.png 1024w, /blog/wp-content/uploads/2023/07/a-screenshot-of-a-computer-description-automatica-2-768x413.png 768w, /blog/wp-content/uploads/2023/07/a-screenshot-of-a-computer-description-automatica-2-1536x826.png 1536w" sizes="(max-width: 1918px) 100vw, 1918px" /><strong>Figure 5: Brim’s Suricata engine detects the data exfiltration over SMTP.</strong></p>
@@ -293,29 +418,38 @@ Description automatically generated" srcset="/blog/wp-content/uploads/2023/07/a-
 		<category><![CDATA[formbook]]></category>
 		<category><![CDATA[malspam]]></category>
 		<category><![CDATA[malware]]></category>
+		<category><![CDATA[malwr0nwind0z]]></category>
 		<category><![CDATA[MASM]]></category>
 		<category><![CDATA[rar attachment]]></category>
 		<category><![CDATA[steganography]]></category>
 		<category><![CDATA[xloader]]></category>
 		<guid isPermaLink="false">https://malwr0nwind0z.com/?p=1135</guid>
 
-					<description><![CDATA[<p>Formbook: A Infostealer Formbook is a type of malware that is primarily used for stealing sensitive information from infected computers, was first discovered in the wild back in 2016. It is commonly distributed via malspam, or malicious spam, which is a type of spam email that contains malware or links to malware-infected websites. In this &#8230;</p>
-<p class="read-more"> <a class="" href="/blog/post_5-15-23_formbook_sample/"> <span class="screen-reader-text">Stealthy Formbook leverages steganography</span> Read More &#187;</a></p>
+					<description><![CDATA[<p>Formbook: A Infostealer Formbook is a type of malware that is primarily used for stealing sensitive information from infected computers, was first discovered in the wild back in 2016. It is commonly distributed via malspam, or malicious spam, which is a type of spam email that contains malware or links to malware-infected websites. In this [&#8230;]</p>
 <p>The post <a href="/blog/post_5-15-23_formbook_sample/">Stealthy Formbook leverages steganography</a> first appeared on <a href="/blog/">malwr0nwind0z</a>.</p>]]></description>
-										<content:encoded><![CDATA[<p><img decoding="async" src="/blog/wp-content/uploads/2023/05/a-picture-containing-stitch-description-automatic.jpeg" alt="A picture containing stitch Description automatically generated with medium confidence" /></p>
+										<content:encoded><![CDATA[<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+<div class="ast-oembed-container " style="height: 100%;"><iframe title="Stealthy Formbook malware leverages steganography" width="1240" height="698" src="https://www.youtube.com/embed/C2bHWnJog7c?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+</div><figcaption class="wp-element-caption"><strong>Video 1: Watch the companion video that this blog post inspired.</strong></figcaption></figure>
+
+
+
+<p></p>
+
+
 <p><strong>Formbook: A Infostealer</strong></p>
 <p>Formbook is a type of malware that is primarily used for stealing sensitive information from infected computers, was first discovered in the wild back in 2016. It is commonly distributed via malspam, or malicious spam, which is a type of spam email that contains malware or links to malware-infected websites. In this report, we will discuss a recent Formbook (version 4.1) infection that occurred via malspam.</p>
 <p><strong>How This Formbook Infection Works</strong></p>
 <p>In this instance it was delivered through malspam that contained a malicious Microsoft executable within a rar archive named <a id="post-1135-_Hlk134308079"></a>scan copy-001.rar. The malicious Formbook dropper executable (scan copy-001.exe). The email is attempting to social engineer the victim into opening the rar attachment to execute the Formbook malware. The email contained urgent language, asking the victim to confirm that the attachment is a revised proforma invoice (which is an obvious ruse).</p>
-<p><img decoding="async" src="/blog/wp-content/uploads/2023/05/a-picture-containing-text-screenshot-description.png" alt="A picture containing text, screenshot Description automatically generated" /></p>
-<p>Figure 1: Formbook malspam containing a malicious rar attachment (scan copy-001.exe)</p>
+<p><img decoding="async" src="/blog/wp-content/uploads/2023/05/a-picture-containing-text-screenshot-description.png" alt="A picture containing text, screenshot Description automatically generated" /><br />Figure 1: Formbook malspam containing a malicious rar attachment (scan copy-001.exe)</p>
+<p><img decoding="async" src="/blog/wp-content/uploads/2023/05/formbook_infection_chain.jpg" alt="This image has an empty alt attribute; its file name is formbook_infection_chain.jpg" /><br />Diagram 1: This Formbooks campaign&#8217;s infection chain.</p>
+<p><img loading="lazy" decoding="async" class="" src="/blog/wp-content/uploads/2023/05/FormBook-pricing-e1626822824816.jpg" width="1062" height="531" />Diagram 2: Formbook is a MAAS (Malware as a service). It is sold on underground forums.</p>
+
 <p><strong>Technical Analysis</strong></p>
 <p>We start our analysis with scan copy-001.exe (Formbook dropper). It is a 32-bit, .NET executable file. Upon execution of scan copy-001.exe, persistence is set by creating a scheduled task to run every time the infected user logs on:</p>
 <p>Scheduled Task: %WINDIR%system32tasksupdatespwwigddan</p>
 <p>C:Users&lt;Username&gt;AppDataRoamingpWWigddan.exe (Classification: Formbook Dropper; renamed duplicate of scan copy-001.exe)</p>
 <p><img decoding="async" src="/blog/wp-content/uploads/2023/05/a-screenshot-of-a-computer-description-automatica.jpeg" alt="A screenshot of a computer Description automatically generated with medium confidence" />Figure 2: Creates a Scheduled Task to set persistence.</p>
-<p><img loading="lazy" decoding="async" src="/blog/wp-content/uploads/2023/05/a-screenshot-of-a-computer-description-automatica-1.jpeg" alt="A screenshot of a computer Description automatically generated with medium confidence" width="705" height="225" /></p>
-<p>Figure 3: Drops a executable file that corresponds with the scheduled task.</p>
+<p><img loading="lazy" decoding="async" src="/blog/wp-content/uploads/2023/05/a-screenshot-of-a-computer-description-automatica-1.jpeg" alt="A screenshot of a computer Description automatically generated with medium confidence" width="705" height="225" /><br />Figure 3: Drops a executable file that corresponds with the scheduled task.</p>
 <p>The Anti-Analysis functionality includes multiple subfunctions to check for the following anti-analysis tools such as (Fig. 4 &amp; 5):</p>
 <ul>
 <li>DebuggerHidden: explicitly tells the debugger not to step inside of the method and no break point will be hit over that method.</li>
@@ -323,29 +457,22 @@ Description automatically generated" srcset="/blog/wp-content/uploads/2023/07/a-
 <li>DebuggerBrowsableState.Never: hides the element from the debugger.</li>
 </ul>
 <p><img loading="lazy" decoding="async" src="/blog/wp-content/uploads/2023/05/EditorBrowsable_DeuggerHidden.png" alt="" width="1158" height="187" /> Figure 4: EditorBrowserable and DebuggerHidden functions.</p>
-<p><img decoding="async" src="/blog/wp-content/uploads/2023/05/a-screenshot-of-a-computer-program-description-au.png" alt="A screenshot of a computer program Description automatically generated with medium confidence" /></p>
-<p>Figure 5: DebuggerBrowserableState.Never function.</p>
+<p><img decoding="async" src="/blog/wp-content/uploads/2023/05/a-screenshot-of-a-computer-program-description-au.png" alt="A screenshot of a computer program Description automatically generated with medium confidence" /><br />Figure 5: DebuggerBrowserableState.Never function.</p>
 <p>The Main function decodes the hardcoded base64 encoded module named Bunifu.UI.dll and loads it in the memory using the Invoke method (Figure 6).</p>
-<p><img decoding="async" src="/blog/wp-content/uploads/2023/05/a-screenshot-of-a-computer-program-description-au-1.png" alt="A screenshot of a computer program Description automatically generated with medium confidence" /><br />
-Figure 6: Scan copy-001.exe loading Bunifu.UI.dll</p>
+<p><img decoding="async" src="/blog/wp-content/uploads/2023/05/a-screenshot-of-a-computer-program-description-au-1.png" alt="A screenshot of a computer program Description automatically generated with medium confidence" /><br />Figure 6: Scan copy-001.exe loading Bunifu.UI.dll</p>
 <p>The new module Bunifu.UI.dll is an obfuscated .NET file that further executes a function to retrieve the embedded bitmap image named otQGDK, which is present in the resource of the malware file scan copy-001.exe.</p>
 <p>This steganography technique is used to hide malicious content in the compressed bitmap image. The successful decompression of the bitmap image retrieves another .NET file in memory which is MajorRevision.exe (Figure 8). The Bunifu.UI.dll module then loads MajorRevision.exe using the Assembly.Load method; which passes the decompressed bitmap content as an argument and then invokes it.</p>
-<p><img decoding="async" src="/blog/wp-content/uploads/2023/05/a-screen-shot-of-a-computer-description-automatic.png" alt="A screen shot of a computer Description automatically generated with medium confidence" /><br />
-Figure 7: Encrypted bitmap image (otQGDK) hiding an embedded executable (MajorRevsion.exe).</p>
-<p><img decoding="async" src="/blog/wp-content/uploads/2023/05/a-screenshot-of-a-computer-program-description-au-2.png" alt="A screenshot of a computer program Description automatically generated with medium confidence" /><br />
-Figure 8: Successful decompression of the bitmap image retrieves another .NET file in memory which is MajorRevision.exe.</p>
+<p><img decoding="async" src="/blog/wp-content/uploads/2023/05/a-screen-shot-of-a-computer-description-automatic.png" alt="A screen shot of a computer Description automatically generated with medium confidence" /><br />Figure 7: Encrypted bitmap image (otQGDK) hiding an embedded executable (MajorRevsion.exe).</p>
+<p><img decoding="async" src="/blog/wp-content/uploads/2023/05/a-screenshot-of-a-computer-program-description-au-2.png" alt="A screenshot of a computer program Description automatically generated with medium confidence" /><br />Figure 8: Successful decompression of the bitmap image retrieves another .NET file in memory which is MajorRevision.exe.</p>
 <p>C2 Configuration Settings</p>
 <p>Below are the decrypted hardcoded configuration settings:</p>
 <p>{&#8220;C2 list&#8221;: [&#8220;www.despachocontablequinsa.com/m82/&#8221;], &#8220;decoy&#8221;: [&#8220;jamesdevereux.com&#8221;, &#8220;artificialturfminneapolis.com&#8221;, &#8220;hongmeiyan.com&#8221;, &#8220;lojaderoupasbr.com&#8221;, &#8220;yit.africa&#8221;, &#8220;austinrelocationexpert.com&#8221;, &#8220;saiva.page&#8221;, &#8220;exitsategy.com&#8221;, &#8220;chochonux.com&#8221;, &#8220;klosterbraeu-unterliezheim.com&#8221;, &#8220;byseymanur.com&#8221;, &#8220;sblwarwickshire.co.uk&#8221;, &#8220;brazimaid.com&#8221;, &#8220;ciogame.com&#8221;, &#8220;bronzesailing.com&#8221;, &#8220;dwkapl.xyz&#8221;, &#8220;022dyd.com&#8221;, &#8220;compassandpathwriting.com&#8221;, &#8220;alphabet1x.com&#8221;, &#8220;selfcleaninghairbrush.co.uk&#8221;, &#8220;power-bank.co.uk&#8221;, &#8220;kickskaart.com&#8221;, &#8220;baumanbilliardsnv.com&#8221;, &#8220;bestcp.net&#8221;, &#8220;doghospitalnearme.com&#8221;, &#8220;mixano.africa&#8221;, &#8220;helarybaber.online&#8221;, &#8220;illubio.com&#8221;, &#8220;ciutas.com&#8221;, &#8220;ldpr33.ru&#8221;, &#8220;killtheblacks.com&#8221;, &#8220;cassino-portugal.com&#8221;, &#8220;danhaii.com&#8221;, &#8220;gvtowingservice.com&#8221;, &#8220;let-travel.africa&#8221;, &#8220;dental-implants-67128.com&#8221;, &#8220;facetaxi.xyz&#8221;, &#8220;ctjh9u8e.vip&#8221;, &#8220;kyosaiohruri.com&#8221;, &#8220;executivepresencetrainer.com&#8221;, &#8220;greatharmony.africa&#8221;, &#8220;feelingsarereal.com&#8221;, &#8220;devopsuday.club&#8221;, &#8220;happiestminds-udemy.com&#8221;, &#8220;fittingstands.com&#8221;, &#8220;happyhousegarment.com&#8221;, &#8220;24daysofheaven.com&#8221;, &#8220;herhustlenation.com&#8221;, &#8220;xn--oy2b27nt6b.net&#8221;, &#8220;hothotcogixem.online&#8221;, &#8220;hausmeisterservice-berlin.net&#8221;, &#8220;hjddbb.com&#8221;, &#8220;stoutfamilychiro.com&#8221;, &#8220;bookishthoughtsbychristy.com&#8221;, &#8220;gibellinaheartquake.com&#8221;, &#8220;8cf1utrb6.xyz&#8221;, &#8220;patrick-daggitt.com&#8221;, &#8220;ebcbank.net&#8221;, &#8220;angel909reviews.com&#8221;, &#8220;arcteryxsouthafricaonline.com&#8221;, &#8220;cutematvhy.com&#8221;, &#8220;art2z.com&#8221;, &#8220;bulkforeverstamps.com&#8221;, &#8220;heatbling.com&#8221;]}</p>
 <p>As with previous versions of Formbook, MajorRevision.exe communicates with multiple domains established as decoys, but it only uses one true C&amp;C.</p>
-<p><img decoding="async" src="/blog/wp-content/uploads/2023/05/a-picture-containing-text-screenshot-font-infor.png" alt="A picture containing text, screenshot, font, information Description automatically generated" /><br />
-Figure 9: The C2 configuration file.</p>
+<p><img decoding="async" src="/blog/wp-content/uploads/2023/05/a-picture-containing-text-screenshot-font-infor.png" alt="A picture containing text, screenshot, font, information Description automatically generated" /><br />Figure 9: The C2 configuration file.</p>
 <p>The final payload is retrieved from memory by converting a large array of bytes, this payload is then injected into a newly created process using Process Hollowing.</p>
 <p>The final payload is categorized as Formbook, it is not a .NET application but a MASM-compiled PE32 executable that contains a single .text section.</p>
-<p><img decoding="async" src="/blog/wp-content/uploads/2023/05/a-screenshot-of-a-computer-program-description-au-3.png" alt="A screenshot of a computer program Description automatically generated with medium confidence" /><br />
-Figure 10: Functions (CreateProcess, NtUnmapViewOfSection, VirtualAllocEx, WriteProcessMemory, SetThreadContext, ResumeThread) referenced in Class15 are utilized for process hollowing.</p>
-<p><img decoding="async" src="/blog/wp-content/uploads/2023/05/a-screenshot-of-a-computer-program-description-au-4.png" alt="A screenshot of a computer program Description automatically generated with medium confidence" /></p>
-<p>Figure 11: The final payload (Formbook) is compiled in MASM.</p>
+<p><img decoding="async" src="/blog/wp-content/uploads/2023/05/a-screenshot-of-a-computer-program-description-au-3.png" alt="A screenshot of a computer program Description automatically generated with medium confidence" /><br />Figure 10: Functions (CreateProcess, NtUnmapViewOfSection, VirtualAllocEx, WriteProcessMemory, SetThreadContext, ResumeThread) referenced in Class15 are utilized for process hollowing.</p>
+<p><img decoding="async" src="/blog/wp-content/uploads/2023/05/a-screenshot-of-a-computer-program-description-au-4.png" alt="A screenshot of a computer program Description automatically generated with medium confidence" /><br />Figure 11: The final payload (Formbook) is compiled in MASM.</p>
 <p><img decoding="async" src="/blog/wp-content/uploads/2023/05/a-screenshot-of-a-computer-description-automatica.png" alt="A screenshot of a computer Description automatically generated" />Figure 12: The final payload (Formbook) contains of a single .text section.</p>
 <p>To avoid similar attacks in the future, organizations must adopt strong email security practices that include spam filters, enabling email authentication protocols, as well as user security awareness training.</p>
 <p>Users need security awareness training to be able to recognize signs of malspam, including suspicious attachments, urgent language, and unexpected emails from unknown senders.</p>
@@ -376,16 +503,24 @@ Figure 10: Functions (CreateProcess, NtUnmapViewOfSection, VirtualAllocEx, Write
 		<category><![CDATA[dead-box forensics]]></category>
 		<category><![CDATA[forensics]]></category>
 		<category><![CDATA[KAPE]]></category>
+		<category><![CDATA[Kroll Artifact Parser And Extractor]]></category>
 		<category><![CDATA[malware]]></category>
+		<category><![CDATA[malwr0nwind0z]]></category>
 		<category><![CDATA[onenote]]></category>
 		<category><![CDATA[Qakbot]]></category>
 		<category><![CDATA[Qaknote]]></category>
 		<guid isPermaLink="false">https://malwr0nwind0z.com/?p=1097</guid>
 
-					<description><![CDATA[<p>KAPE: Kroll Artifact Parser and Extractor KAPE is a open source Windows-based triage program that will find and collect important forensically relevant Windows OS artifacts (System logs, Registry entries, etc.). KAPE can be ran on a live Windows operating or a mounted Windows image (i.e. dead-box forensics). KAPE utilizes Targets and Modules to collect and &#8230;</p>
-<p class="read-more"> <a class="" href="/blog/post_3-12-23_kape_forensics_qakbot_qaknote/"> <span class="screen-reader-text">KAPE Collection: Forensic artifacts from a Qakbot infection (via Qaknote)</span> Read More &#187;</a></p>
+					<description><![CDATA[<p>KAPE: Kroll Artifact Parser and Extractor KAPE is a open source Windows-based triage program that will find and collect important forensically relevant Windows OS artifacts (System logs, Registry entries, etc.). KAPE can be ran on a live Windows operating or a mounted Windows image (i.e. dead-box forensics). KAPE utilizes Targets and Modules to collect and [&#8230;]</p>
 <p>The post <a href="/blog/post_3-12-23_kape_forensics_qakbot_qaknote/">KAPE Collection: Forensic artifacts from a Qakbot infection (via Qaknote)</a> first appeared on <a href="/blog/">malwr0nwind0z</a>.</p>]]></description>
-										<content:encoded><![CDATA[<p><img decoding="async" src="/blog/wp-content/uploads/2023/03/icon-description-automatically-generated.png" alt="Icon Description automatically generated" /></p>
+										<content:encoded><![CDATA[<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+<div class="ast-oembed-container " style="height: 100%;"><iframe title="Using KAPE to analyze a Qakbot infection" width="1240" height="698" src="https://www.youtube.com/embed/JzVcgZ-tzy0?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+</div><figcaption class="wp-element-caption"><strong>Video 1: Watch the companion video that this blog post inspired.</strong></figcaption></figure>
+
+
+<p><style>/*! elementor - v3.19.0 - 29-01-2024 */<br />
+.elementor-column .elementor-spacer-inner{height:var(--spacer-size)}.e-con{--container-widget-width:100%}.e-con-inner>.elementor-widget-spacer,.e-con>.elementor-widget-spacer{width:var(--container-widget-width,var(--spacer-size));--align-self:var(--container-widget-align-self,initial);--flex-shrink:0}.e-con-inner>.elementor-widget-spacer>.elementor-widget-container,.e-con>.elementor-widget-spacer>.elementor-widget-container{height:100%;width:100%}.e-con-inner>.elementor-widget-spacer>.elementor-widget-container>.elementor-spacer,.e-con>.elementor-widget-spacer>.elementor-widget-container>.elementor-spacer{height:100%}.e-con-inner>.elementor-widget-spacer>.elementor-widget-container>.elementor-spacer>.elementor-spacer-inner,.e-con>.elementor-widget-spacer>.elementor-widget-container>.elementor-spacer>.elementor-spacer-inner{height:var(--container-widget-height,var(--spacer-size))}.e-con-inner>.elementor-widget-spacer.elementor-widget-empty,.e-con>.elementor-widget-spacer.elementor-widget-empty{position:relative;min-height:22px;min-width:22px}.e-con-inner>.elementor-widget-spacer.elementor-widget-empty .elementor-widget-empty-icon,.e-con>.elementor-widget-spacer.elementor-widget-empty .elementor-widget-empty-icon{position:absolute;top:0;bottom:0;left:0;right:0;margin:auto;padding:0;width:22px;height:22px}</style></p>
+<p><img decoding="async" src="/blog/wp-content/uploads/2023/03/icon-description-automatically-generated.png" alt="Icon Description automatically generated" /></p>
 <p><strong>KAPE: Kroll Artifact Parser and Extractor</strong></p>
 <p>KAPE is a open source Windows-based triage program that will find and collect important forensically relevant Windows OS artifacts (System logs, Registry entries, etc.). KAPE can be ran on a live Windows operating or a mounted Windows image (i.e. dead-box forensics). KAPE utilizes Targets and Modules to collect and triage forensic artifacts.</p>
 <p><strong>How KAPE Works</strong></p>
@@ -393,10 +528,8 @@ Figure 10: Functions (CreateProcess, NtUnmapViewOfSection, VirtualAllocEx, Write
 <p>Targets: the type of artifacts (files, logs, or registry hives) that you can collect and store in a container (i.e. vhdx, zip).</p>
 <p>Modules: scripts that utilize third-party programs/parsers to process and export (i.e. .csv, zip) the artifacts.</p>
 <p>Below, we run KAPE to collect forensic artifacts on a Windows 10 machine suspected of being infected with Qakbot. The KAPE collection is being saved to an external HDD (D:).</p>
-<p><img decoding="async" src="/blog/wp-content/uploads/2023/03/word-image-1097-2.png" /><br />
-<strong>Figure 1: KAPE ran from an external drive.</strong></p>
-<p><img decoding="async" src="/blog/wp-content/uploads/2023/03/text-description-automatically-generated.png" alt="Text Description automatically generated" /><br />
-<strong>Figure 2: KAPE collection is done.</strong></p>
+<p><img decoding="async" src="/blog/wp-content/uploads/2023/03/word-image-1097-2.png" /> <br /><strong>Figure 1: KAPE ran from an external drive.</strong></p>
+<p><img decoding="async" src="/blog/wp-content/uploads/2023/03/text-description-automatically-generated.png" alt="Text Description automatically generated" /><br /><strong>Figure 2: KAPE collection is done.</strong></p>
 <p>The target forensic artifacts (files, logs, or registry hives) that I collect are stored in a vhdx container where I can later mount and analyze.</p>
 <p><img decoding="async" src="/blog/wp-content/uploads/2023/03/word-image-1097-4.jpeg" /></p>
 <p><strong>Figure 3: Target forensic artifacts stored in a xhdx file.</strong></p>
@@ -407,8 +540,7 @@ Figure 10: Functions (CreateProcess, NtUnmapViewOfSection, VirtualAllocEx, Write
 <p><strong>How This Qakbot Infection Started</strong></p>
 <p>Qakbot is typically delivered to the victim through various methods, including phishing emails, malspam, exploit kits, and exploiting vulnerabilities in software. The exact method of delivery may vary depending on the attackers&#8217; goals.</p>
 <p>In this instance, our digital forensic artifacts confirm that it was delivered through malspam; that contained a malicious Microsoft OneNote document (Qaknote) within a zip archive named Invoice #030223.zip. The malicious OneNote document (Invoice #030223.one) contained a social engineering Microsoft O365 themed image (double click “open”), that once clicked, it executes an embedded WScript file (O P E N .wsf).</p>
-<p><img decoding="async" src="/blog/wp-content/uploads/2023/03/graphical-user-interface-application-description.png" alt="Graphical user interface, application Description automatically generated" /><br />
-<strong>Figure 6: Embedded social engineering Microsoft O365 themed image (double click “open”)in the OneNote document (Invoice #030223.one).</strong></p>
+<p><img decoding="async" src="/blog/wp-content/uploads/2023/03/graphical-user-interface-application-description.png" alt="Graphical user interface, application Description automatically generated" /> <br /><strong>Figure 6: Embedded social engineering Microsoft O365 themed image (double click “open”)in the OneNote document (Invoice #030223.one).</strong></p>
 <p><strong>Qakbot &#8211; Forensic Artifacts</strong></p>
 <p>The review of the user’s Recent folder shows a lnk file for O P E N .wsf, indicating that it was double clicked and executed. Microsoft Protection (MPLog) was able to log the execution of this WScript file (O P E N .wsf) as having PID:7636 and the process start time: 133225496244686642 (LDAP/FILETIME) which converts to Sunday, March 5, 2023 11:13:44 PM GMT-05:00.</p>
 <p><img decoding="async" src="/blog/wp-content/uploads/2023/03/word-image-1097-8.jpeg" /><strong>Figure 7: Lnk file (located in Recent folder) pointing to the WScript file (O P E N .wsf) that the user executed.</strong></p>
@@ -449,6 +581,7 @@ Figure 10: Functions (CreateProcess, NtUnmapViewOfSection, VirtualAllocEx, Write
 		<category><![CDATA[asyncrat]]></category>
 		<category><![CDATA[malspam]]></category>
 		<category><![CDATA[malware]]></category>
+		<category><![CDATA[malwr0nwind0z]]></category>
 		<category><![CDATA[onenote malware]]></category>
 		<category><![CDATA[quasharr.ddns.net]]></category>
 		<category><![CDATA[rat]]></category>
@@ -456,8 +589,7 @@ Figure 10: Functions (CreateProcess, NtUnmapViewOfSection, VirtualAllocEx, Write
 		<category><![CDATA[wormxwar.ddns.net]]></category>
 		<guid isPermaLink="false">/blog/ut-enim-ad-minim-veniam-quis-nostrud-exercitation-ullamco-laboris-nisi/</guid>
 
-					<description><![CDATA[<p>Continuing our previous AsyncRAT discussion, this is Part 2 of this blog post, where I will review stage 2, which will cover the analysis of the ASyncRAT payload (payload.exe) and we will dive into some of its functionalities. Figure 1: File property details of payload.exe shown in CFF Explorer. Unpacking ASyncRAT Since this is a &#8230;</p>
-<p class="read-more"> <a class="" href="/blog/post_1-23-23_asyncrat_sample_part_2/"> <span class="screen-reader-text">ASyncRAT delivered through malspam via OneNote attachment (Stage 2)</span> Read More &#187;</a></p>
+					<description><![CDATA[<p>Continuing our previous AsyncRAT discussion, this is Part 2 of this blog post, where I will review stage 2, which will cover the analysis of the ASyncRAT payload (payload.exe) and we will dive into some of its functionalities. Figure 1: File property details of payload.exe shown in CFF Explorer. Unpacking ASyncRAT Since this is a [&#8230;]</p>
 <p>The post <a href="/blog/post_1-23-23_asyncrat_sample_part_2/">ASyncRAT delivered through malspam via OneNote attachment (Stage 2)</a> first appeared on <a href="/blog/">malwr0nwind0z</a>.</p>]]></description>
 										<content:encoded><![CDATA[<p>Continuing our previous AsyncRAT discussion, this is Part 2 of this blog post, where I will review stage 2, which will cover the analysis of the ASyncRAT payload (payload.exe) and we will dive into some of its functionalities.</p>
 <p style="text-align: center;"><img decoding="async" class="aligncenter" src="/blog/wp-content/uploads/2023/01/table-description-automatically-generated-2.png" alt="Table Description automatically generated" /><strong> Figure 1: File property details of payload.exe shown in CFF Explorer.</strong></p>
@@ -501,7 +633,7 @@ Figure 10: Functions (CreateProcess, NtUnmapViewOfSection, VirtualAllocEx, Write
 <p><em>Pastebin: null </em></p>
 <p><em>Anti: False </em></p>
 <p><em>BDOS: False</em></p>
-<p style="text-align: center;"><img loading="lazy" decoding="async" class="alignnone size-full wp-image-1091 aligncenter" src="/blog/wp-content/uploads/2023/01/payload_traffic_154.12.234.207.png" alt="" width="1873" height="107" srcset="/blog/wp-content/uploads/2023/01/payload_traffic_154.12.234.207.png 1873w, /blog/wp-content/uploads/2023/01/payload_traffic_154.12.234.207-300x17.png 300w, /blog/wp-content/uploads/2023/01/payload_traffic_154.12.234.207-1024x58.png 1024w, /blog/wp-content/uploads/2023/01/payload_traffic_154.12.234.207-768x44.png 768w, /blog/wp-content/uploads/2023/01/payload_traffic_154.12.234.207-1536x88.png 1536w" sizes="(max-width: 1873px) 100vw, 1873px" /><strong>Figure 9: Connection to C2 server (154.12.234.207) to check-in.</strong></p>
+<p style="text-align: center;"><img loading="lazy" decoding="async" class="size-full wp-image-1091 alignleft" src="/blog/wp-content/uploads/2023/01/payload_traffic_154.12.234.207.png" alt="" width="1873" height="107" srcset="/blog/wp-content/uploads/2023/01/payload_traffic_154.12.234.207.png 1873w, /blog/wp-content/uploads/2023/01/payload_traffic_154.12.234.207-300x17.png 300w, /blog/wp-content/uploads/2023/01/payload_traffic_154.12.234.207-1024x58.png 1024w, /blog/wp-content/uploads/2023/01/payload_traffic_154.12.234.207-768x44.png 768w, /blog/wp-content/uploads/2023/01/payload_traffic_154.12.234.207-1536x88.png 1536w" sizes="(max-width: 1873px) 100vw, 1873px" /><strong>Figure 9: Connection to C2 server (154.12.234.207) to check-in.</strong></p>
 <p><strong>Anti Analysis</strong></p>
 <p>The Anti Analysis function includes multiple subfunctions to check for the following anti-analysis tools such as (Fig. 10):</p>
 <ul>
@@ -562,6 +694,7 @@ Figure 10: Functions (CreateProcess, NtUnmapViewOfSection, VirtualAllocEx, Write
 		<category><![CDATA[asyncrat]]></category>
 		<category><![CDATA[malspam]]></category>
 		<category><![CDATA[malware]]></category>
+		<category><![CDATA[malwr0nwind0z]]></category>
 		<category><![CDATA[onenote malware]]></category>
 		<category><![CDATA[quasharr.ddns.net]]></category>
 		<category><![CDATA[rat]]></category>
@@ -569,29 +702,49 @@ Figure 10: Functions (CreateProcess, NtUnmapViewOfSection, VirtualAllocEx, Write
 		<category><![CDATA[wormxwar.ddns.net]]></category>
 		<guid isPermaLink="false">/blog/?p=972</guid>
 
-					<description><![CDATA[<p>AsyncRat: A Remote Administration Trojan (RAT) AsyncRat is a malicious Remote Administration Trojan (RAT) that has been actively used in cyber attacks since 2019. This malware is designed to compromise the security of a target system and allow remote attackers to gain unauthorized access and control. In this blog post, we will analyze the behavior &#8230;</p>
-<p class="read-more"> <a class="" href="/blog/post_1-23-23_asyncrat_sample_part_1/"> <span class="screen-reader-text">ASyncRAT delivered through malspam via OneNote attachment (Stage 1)</span> Read More &#187;</a></p>
+					<description><![CDATA[<p>AsyncRat: A Remote Access Trojan (RAT) AsyncRat is an open source Remote Access Trojan (RAT) that was originally released on Github. It has since been weaponized by threat actors and actively used in cyber attacks since 2019. This malware is designed to compromise the security of a target system and allow remote attackers to gain [&#8230;]</p>
 <p>The post <a href="/blog/post_1-23-23_asyncrat_sample_part_1/">ASyncRAT delivered through malspam via OneNote attachment (Stage 1)</a> first appeared on <a href="/blog/">malwr0nwind0z</a>.</p>]]></description>
-										<content:encoded><![CDATA[<p><img decoding="async" src="/blog/wp-content/uploads/2023/02/word-image-972-1.jpeg" /></p>
-<p><strong>AsyncRat: A Remote Administration Trojan (RAT)</strong></p>
-<p>AsyncRat is a malicious Remote Administration Trojan (RAT) that has been actively used in cyber attacks since 2019. This malware is designed to compromise the security of a target system and allow remote attackers to gain unauthorized access and control. In this blog post, we will analyze the behavior and characteristics of AsyncRat to better understand how it operates and how to protect against it.</p>
+										<content:encoded><![CDATA[<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+<div class="ast-oembed-container " style="height: 100%;"><iframe title="ASyncRAT delivered through OneNote attachments" width="1240" height="698" src="https://www.youtube.com/embed/-lCBhme0zXM?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+</div><figcaption class="wp-element-caption"><strong>Video 1: Watch the companion video that this blog post inspired.</strong></figcaption></figure>
+
+
+
+<p></p>
+
+
+
+<p></p>
+
+
+<p><strong>AsyncRat: A Remote Access Trojan (RAT)</strong></p>
+<p>AsyncRat is an open source Remote Access Trojan (RAT) that was originally released on Github. It has since been weaponized by threat actors and actively used in cyber attacks since 2019. This malware is designed to compromise the security of a target system and allow remote attackers to gain unauthorized access and control. In this blog post, we will analyze the behavior and characteristics of AsyncRat to better understand how it operates and how to protect against it.</p>
+
+
+<p>                                                                                 </p>
+
+
+<p><img decoding="async" src="/blog/wp-content/uploads/2023/12/image-1.png" alt="This image has an empty alt attribute; its file name is Asyncrat_builder.png" /><br /><strong>Figure 1: AsyncRAT&#8217;s attacker control panel</p>
+<p></strong></p>
 <p><strong>How This AsyncRat Infection Works</strong></p>
 <p>The AsyncRat is typically delivered to the victim through various methods, including phishing emails, social engineering tactics, and exploiting vulnerabilities in unpatched software. In some cases, the malware may also be delivered through drive-by downloads, where the victim unwittingly downloads the malware while visiting a compromised website. The exact method of delivery may vary depending on the attackers&#8217; goals and the target&#8217;s specific vulnerabilities.</p>
 <p>In this instance it was delivered through malspam that contain a malicious Microsoft OneNote document within a zip archive named Invoice #099272663.zip. The malicious OneNote document (Invoice #099272663.one) contained a social engineering “CLICK TO VIEW DOCUMENT” image, that once clicked, it executes embedded VBScript.</p>
-<h6 style="text-align: center;"><img loading="lazy" decoding="async" class="size-large wp-image-1001 aligncenter" src="/blog/wp-content/uploads/2023/01/onenote_screenshot-1024x658.png" alt="" width="1024" height="658" srcset="/blog/wp-content/uploads/2023/01/onenote_screenshot-1024x658.png 1024w, /blog/wp-content/uploads/2023/01/onenote_screenshot-300x193.png 300w, /blog/wp-content/uploads/2023/01/onenote_screenshot-768x494.png 768w, /blog/wp-content/uploads/2023/01/onenote_screenshot.png 1398w" sizes="(max-width: 1024px) 100vw, 1024px" />Figure 1: Embedded social engineering “CLICK TO VIEW DOCUMENT” image in the OneNote document (Invoice #099272663.one)</h6>
+<h6 style="text-align: center;"><img loading="lazy" decoding="async" class="size-large wp-image-1001 aligncenter" src="/blog/wp-content/uploads/2023/01/onenote_screenshot-1024x658.png" alt="" width="1024" height="658" srcset="/blog/wp-content/uploads/2023/01/onenote_screenshot-1024x658.png 1024w, /blog/wp-content/uploads/2023/01/onenote_screenshot-300x193.png 300w, /blog/wp-content/uploads/2023/01/onenote_screenshot-768x494.png 768w, /blog/wp-content/uploads/2023/01/onenote_screenshot.png 1398w" sizes="(max-width: 1024px) 100vw, 1024px" />Figure 2: Embedded social engineering “CLICK TO VIEW DOCUMENT” image in the OneNote document (Invoice #099272663.one)</h6>
+<p><img loading="lazy" decoding="async" class="alignnone size-full wp-image-1291" src="/blog/wp-content/uploads/2023/01/asyncrat_infection_chain.jpg" alt="" width="572" height="491" srcset="/blog/wp-content/uploads/2023/01/asyncrat_infection_chain.jpg 572w, /blog/wp-content/uploads/2023/01/asyncrat_infection_chain-300x258.jpg 300w" sizes="(max-width: 572px) 100vw, 572px" /><br /><strong>Figure 3: AsyncRat infection chain.</p>
+<p></strong></p>
 <p>The VBScript invokes PowerShell to download a benign decoy OneNote document and a malicious batch script from the following URLs:</p>
 <p>Download URL: hxxps://www.onenotegem[.]com/uploads/soft/one-templates/the_daily_schedule.one</p>
 <p><a id="post-972-_Hlk126684701"></a> Drop folder location: C:Users&lt;Username&gt;AppDataLocalTempinvoice.one (Classification: benign decoy OneNote document used to trick the victim into thinking that all is well, after clicking on the aforementioned embedded social engineering “CLICK TO VIEW DOCUMENT” image)</p>
 <p>Download URL: hxxps://transfer[.]sh/get/bjLvT5/AsyncClientnownow.bat</p>
 <p>Drop folder location: C:Users&lt;Username&gt;AppDataLocalTempsystem32.bat (Classification: ASyncRAT loader &#8211; malicious batch file)</p>
-<h6 style="text-align: center;"><img loading="lazy" decoding="async" class="alignnone size-full wp-image-1002" src="/blog/wp-content/uploads/2023/01/onenote_malicious_vbscript.png" alt="" width="1920" height="950" srcset="/blog/wp-content/uploads/2023/01/onenote_malicious_vbscript.png 1920w, /blog/wp-content/uploads/2023/01/onenote_malicious_vbscript-300x148.png 300w, /blog/wp-content/uploads/2023/01/onenote_malicious_vbscript-1024x507.png 1024w, /blog/wp-content/uploads/2023/01/onenote_malicious_vbscript-768x380.png 768w, /blog/wp-content/uploads/2023/01/onenote_malicious_vbscript-1536x760.png 1536w" sizes="(max-width: 1920px) 100vw, 1920px" />Figure 2: Embedded VBScript that when executed downloads a decoy OneNote document and a malicious batch script.</h6>
+<h6 style="text-align: center;"><img loading="lazy" decoding="async" class="alignnone size-full wp-image-1002" src="/blog/wp-content/uploads/2023/01/onenote_malicious_vbscript.png" alt="" width="1920" height="950" srcset="/blog/wp-content/uploads/2023/01/onenote_malicious_vbscript.png 1920w, /blog/wp-content/uploads/2023/01/onenote_malicious_vbscript-300x148.png 300w, /blog/wp-content/uploads/2023/01/onenote_malicious_vbscript-1024x507.png 1024w, /blog/wp-content/uploads/2023/01/onenote_malicious_vbscript-768x380.png 768w, /blog/wp-content/uploads/2023/01/onenote_malicious_vbscript-1536x760.png 1536w" sizes="(max-width: 1920px) 100vw, 1920px" />Figure 4: Embedded VBScript that when executed downloads a decoy OneNote document and a malicious batch script.</h6>
 <p>Spoilers!! The batch script (AsyncClientnownow.bat) that is downloaded to the system and executed, will ultimately drop and executed a ASyncRAT executable (payload.exe). The ASyncRAT executable is written in Microsoft .NET Framework. The batch script is classified as a ASyncRAT dropper.</p>
 <p>Next, I will briefly discuss how the heavily obfuscated batch script works. The first part of its code is an obfuscated executable file and the second part is an base64 encoded PowerShell script.</p>
-<h6 style="text-align: center;"><img loading="lazy" decoding="async" class="alignnone size-full wp-image-977" src="/blog/wp-content/uploads/2023/02/graphical-user-interface-text-description-automa.png" alt="Graphical user interface, text Description automatically generated" width="1920" height="951" srcset="/blog/wp-content/uploads/2023/02/graphical-user-interface-text-description-automa.png 1920w, /blog/wp-content/uploads/2023/02/graphical-user-interface-text-description-automa-300x149.png 300w, /blog/wp-content/uploads/2023/02/graphical-user-interface-text-description-automa-1024x507.png 1024w, /blog/wp-content/uploads/2023/02/graphical-user-interface-text-description-automa-768x380.png 768w, /blog/wp-content/uploads/2023/02/graphical-user-interface-text-description-automa-1536x761.png 1536w" sizes="(max-width: 1920px) 100vw, 1920px" /> Figure 3: Obfuscated batch script that contains an encrypted ASyncRAT binary.</h6>
+<h6 style="text-align: center;"><img loading="lazy" decoding="async" class="alignnone size-full wp-image-977" src="/blog/wp-content/uploads/2023/02/graphical-user-interface-text-description-automa.png" alt="Graphical user interface, text Description automatically generated" width="1920" height="951" srcset="/blog/wp-content/uploads/2023/02/graphical-user-interface-text-description-automa.png 1920w, /blog/wp-content/uploads/2023/02/graphical-user-interface-text-description-automa-300x149.png 300w, /blog/wp-content/uploads/2023/02/graphical-user-interface-text-description-automa-1024x507.png 1024w, /blog/wp-content/uploads/2023/02/graphical-user-interface-text-description-automa-768x380.png 768w, /blog/wp-content/uploads/2023/02/graphical-user-interface-text-description-automa-1536x761.png 1536w" sizes="(max-width: 1920px) 100vw, 1920px" /> Figure 5: Obfuscated batch script that contains an encrypted ASyncRAT binary.</h6>
 <p>Once the base64 encoded PowerShell script is run it is de-obfuscated during runtime. A review of this PowerShell shows that it is used to de-obfuscate the first part of code in the batch script utilizing base64 decode, AES Decryption (Key and IV), and Gunzip. The resulting de-obfuscated code turns out to be the aforementioned ASyncRAT executable file, which is then loaded into memory and executed.</p>
-<h6 style="text-align: center;"><img loading="lazy" decoding="async" class="alignnone size-large wp-image-978" src="/blog/wp-content/uploads/2023/02/text-description-automatically-generated-1-1024x248.png" alt="Text Description automatically generated" width="1024" height="248" srcset="/blog/wp-content/uploads/2023/02/text-description-automatically-generated-1-1024x248.png 1024w, /blog/wp-content/uploads/2023/02/text-description-automatically-generated-1-300x73.png 300w, /blog/wp-content/uploads/2023/02/text-description-automatically-generated-1-768x186.png 768w, /blog/wp-content/uploads/2023/02/text-description-automatically-generated-1.png 1279w" sizes="(max-width: 1024px) 100vw, 1024px" /> Figure 4: A portion of the de-obfuscated batch script that shows the PowerShell script.</h6>
+<h6 style="text-align: center;"><img loading="lazy" decoding="async" class="alignnone size-large wp-image-978" src="/blog/wp-content/uploads/2023/02/text-description-automatically-generated-1-1024x248.png" alt="Text Description automatically generated" width="1024" height="248" srcset="/blog/wp-content/uploads/2023/02/text-description-automatically-generated-1-1024x248.png 1024w, /blog/wp-content/uploads/2023/02/text-description-automatically-generated-1-300x73.png 300w, /blog/wp-content/uploads/2023/02/text-description-automatically-generated-1-768x186.png 768w, /blog/wp-content/uploads/2023/02/text-description-automatically-generated-1.png 1279w" sizes="(max-width: 1024px) 100vw, 1024px" /> Figure 6: A portion of the de-obfuscated batch script that shows the PowerShell script.</h6>
 <p>During my manual analysis, I was able to decrypt the obfuscated executable file using CyberChef. As I mentioned earlier it is classified as ASyncRAT and written in Microsoft .NET Framework. I re-named this file payload.exe.</p>
-<h6 style="text-align: center;"><img decoding="async" src="/blog/wp-content/uploads/2023/02/graphical-user-interface-text-application-descr.png" alt="Graphical user interface, text, application Description automatically generated" /> Figure 5: De-obfuscating the first part of the batch script using CyberChef. The file header is MZ, revealing that it is a Windows executable file.</h6>
+<h6 style="text-align: center;"><img decoding="async" src="/blog/wp-content/uploads/2023/02/graphical-user-interface-text-application-descr.png" alt="Graphical user interface, text, application Description automatically generated" /> Figure 7: De-obfuscating the first part of the batch script using CyberChef. The file header is MZ, revealing that it is a Windows executable file.</h6>
 <p>That ends Part 1 of this blog, which was just analyzing stage 1 of this infection. In Part 2 of this blog post I will review stage 2, which will cover the analysis of the ASyncRAT payload and dive into some of its functionalities.</p>
 <p><strong>IOCs:</strong></p>
 <p>Invoice #099272663.zip (MD5: 5879DA120E13BC22DE3697D4A3CB2878)</p>
