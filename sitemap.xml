@@ -1,97 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+<!-- This sitemap was dynamically generated on March 15, 2024 at 4:27 pm by All in One SEO v4.5.8 - the original SEO plugin for WordPress. -->
 
-
-<url>
-  <loc>https://malwr0nwind0z.github.io/blog/</loc>
-  <lastmod>2024-02-02T03:03:35+00:00</lastmod>
-  <priority>1.00</priority>
-</url>
-<url>
-  <loc>https://malwr0nwind0z.github.io/blog/services/</loc>
-  <lastmod>2024-02-02T03:03:35+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://malwr0nwind0z.github.io/blog/about/</loc>
-  <lastmod>2024-02-02T03:03:35+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://malwr0nwind0z.github.io/blog/contact/</loc>
-  <lastmod>2024-02-02T03:03:35+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://malwr0nwind0z.github.io/blog/category/malware-analysis/</loc>
-  <lastmod>2024-02-02T03:03:35+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://malwr0nwind0z.github.io/blog/category/forensic-analysis/</loc>
-  <lastmod>2024-02-02T03:03:35+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://malwr0nwind0z.github.io/blog/category/red-team/</loc>
-  <lastmod>2024-02-02T03:03:35+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://malwr0nwind0z.github.io/blog/category/threat-intel/</loc>
-  <lastmod>2024-02-02T03:03:35+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://malwr0nwind0z.github.io/blog/post_1-23-24_lockbit_ransomware_3-0/</loc>
-  <lastmod>2024-02-02T03:03:35+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://malwr0nwind0z.github.io/blog/author/malwr0wind0z/</loc>
-  <lastmod>2024-02-02T03:03:35+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://malwr0nwind0z.github.io/blog/post_5-15-23_formbook_sample/</loc>
-  <lastmod>2024-02-02T03:03:35+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://malwr0nwind0z.github.io/blog/post_1-23-23_asyncrat_sample_part_2/</loc>
-  <lastmod>2024-02-02T03:03:35+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://malwr0nwind0z.github.io/blog/post_1-23-23_asyncrat_sample_part_1/</loc>
-  <lastmod>2024-02-02T03:03:35+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://malwr0nwind0z.github.io/blog/post_7-25-23_network_forensics_agent_tesla/</loc>
-  <lastmod>2024-02-02T03:03:35+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://malwr0nwind0z.github.io/blog/post_3-12-23_kape_forensics_qakbot_qaknote/</loc>
-  <lastmod>2024-02-02T03:03:35+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://malwr0nwind0z.github.io/blog/post_11-11-23_originality_ai_hack_unlimited_free_credits/</loc>
-  <lastmod>2024-02-02T03:03:35+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://malwr0nwind0z.github.io/blog/post_10-23-23_living_off_the_land_pentest/</loc>
-  <lastmod>2024-02-02T03:03:35+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-
-
-</urlset>
+<?xml-stylesheet type="text/xsl" href="/blog/default-sitemap.xsl?sitemap=root"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	<sitemap>
+		<loc><![CDATA[/blog/post-sitemap.xml]]></loc>
+		<lastmod><![CDATA[2024-01-29T17:17:14+00:00]]></lastmod>
+	</sitemap>
+	<sitemap>
+		<loc><![CDATA[/blog/page-sitemap.xml]]></loc>
+		<lastmod><![CDATA[2024-01-13T17:22:44+00:00]]></lastmod>
+	</sitemap>
+	<sitemap>
+		<loc><![CDATA[/blog/category-sitemap.xml]]></loc>
+		<lastmod><![CDATA[2024-01-29T17:17:14+00:00]]></lastmod>
+	</sitemap>
+	<sitemap>
+		<loc><![CDATA[/blog/post_tag-sitemap.xml]]></loc>
+		<lastmod><![CDATA[2024-01-29T17:17:14+00:00]]></lastmod>
+	</sitemap>
+</sitemapindex>
