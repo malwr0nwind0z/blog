@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- This sitemap was dynamically generated on March 15, 2024 at 4:27 pm by All in One SEO v4.5.8 - the original SEO plugin for WordPress. -->
+<!-- This sitemap was dynamically generated on February 2, 2025 at 5:13 pm by All in One SEO v4.7.8 - the original SEO plugin for WordPress. -->
 
 <?xml-stylesheet type="text/xsl" href="/blog/default-sitemap.xsl?sitemap=root"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<sitemap>
 		<loc><![CDATA[/blog/post-sitemap.xml]]></loc>
-		<lastmod><![CDATA[2024-01-29T17:17:14+00:00]]></lastmod>
+		<lastmod><![CDATA[2025-02-02T16:46:47+00:00]]></lastmod>
 	</sitemap>
 	<sitemap>
 		<loc><![CDATA[/blog/page-sitemap.xml]]></loc>
-		<lastmod><![CDATA[2024-01-13T17:22:44+00:00]]></lastmod>
+		<lastmod><![CDATA[2025-01-23T00:12:16+00:00]]></lastmod>
 	</sitemap>
 	<sitemap>
 		<loc><![CDATA[/blog/category-sitemap.xml]]></loc>
-		<lastmod><![CDATA[2024-01-29T17:17:14+00:00]]></lastmod>
+		<lastmod><![CDATA[2025-02-02T16:46:47+00:00]]></lastmod>
 	</sitemap>
 	<sitemap>
 		<loc><![CDATA[/blog/post_tag-sitemap.xml]]></loc>
-		<lastmod><![CDATA[2024-01-29T17:17:14+00:00]]></lastmod>
+		<lastmod><![CDATA[2025-02-02T16:46:47+00:00]]></lastmod>
 	</sitemap>
 </sitemapindex>

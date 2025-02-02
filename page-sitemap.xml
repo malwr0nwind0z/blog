@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- This sitemap was dynamically generated on March 15, 2024 at 4:27 pm by All in One SEO v4.5.8 - the original SEO plugin for WordPress. -->
+<!-- This sitemap was dynamically generated on February 2, 2025 at 5:13 pm by All in One SEO v4.7.8 - the original SEO plugin for WordPress. -->
 
 <?xml-stylesheet type="text/xsl" href="/blog/default-sitemap.xsl?sitemap=page"?>
 <urlset
@@ -20,8 +20,47 @@
 		</image:image>
 	</url>
 	<url>
+		<loc><![CDATA[/blog/shop/]]></loc>
+		<lastmod><![CDATA[2025-01-23T00:12:16+00:00]]></lastmod>
+		<changefreq><![CDATA[weekly]]></changefreq>
+		<priority><![CDATA[0.7]]></priority>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2024/12/IMG_1294-1024x683.jpg]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2024/11/IMG_1255-1024x683.jpg]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2024/12/IMG_1279-1024x683.jpg]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2025/01/IMG_1301-1024x683.jpg]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2025/01/MOW_Antitheft_mount-with-chain-1-1024x576.jpg]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2024/12/IMG_1281-1024x683.jpg]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2024/12/IMG_1280-1024x683.jpg]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2024/11/reolink_altas_pt_ultra_in_box_both_stock-879x1024.jpg]]></image:loc>
+		</image:image>
+		<image:image>
+			<image:loc><![CDATA[/blog/wp-content/uploads/2024/12/falcon_530.png]]></image:loc>
+		</image:image>
+	</url>
+	<url>
 		<loc><![CDATA[/blog/services/]]></loc>
-		<lastmod><![CDATA[2024-01-13T17:22:44+00:00]]></lastmod>
+		<lastmod><![CDATA[2024-12-03T03:38:13+00:00]]></lastmod>
+		<changefreq><![CDATA[weekly]]></changefreq>
+		<priority><![CDATA[0.7]]></priority>
+	</url>
+	<url>
+		<loc><![CDATA[/blog/thank-you/]]></loc>
+		<lastmod><![CDATA[2024-11-06T05:20:47+00:00]]></lastmod>
 		<changefreq><![CDATA[weekly]]></changefreq>
 		<priority><![CDATA[0.7]]></priority>
 	</url>
